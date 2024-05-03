@@ -1,0 +1,13 @@
+{
+  "type": "service_account",
+  "project_id": "repricer-413213",
+  "private_key_id": "4bb3e1a86ba1b9a480e614e810fc31d1bf8cc90a",
+  "private_key": "-----BEGIN PRIVATE KEY-----\nMIIEvQIBADANBgkqhkiG9w0BAQEFAASCBKcwggSjAgEAAoIBAQDLanGNpUdBvSMw\nsNmI4AepT7TFAwLCDgU5EwZqXo/UZo4QPqYPP0eVS7YCOHEvlS5P2pqSJqmz4w3C\neCTHipKFeG9bULSwDSsyaKWPPn5SAfysulTiua80sz/Kd7V1b1fMJOToDOH5VLmb\nHmsa7ytjRUekGP9BByMZKcoqnYVwDWUFj/GlK9CU2rHXExuuFt0WW0K1R0rVClf6\nDaANVyWifvJqanrzHmRI/RpiDEMoy2NERVSVC4i1sSPVIT8XS0b84hZsZv51wBpn\nDJS+knHs1u+Id2JYuxDQGwkpLUhXHyBO5BXcgRnYhLJTuCudiXG2DwzxeyOM6/GL\nqT3dGj8VAgMBAAECggEAAyC9I8Qzmw1tPdmuUqY9P+t/mFryPyknh+fkvJx9IjM8\ngn/wHkJnF6LdJt4W0Xg+CNDP+Sjaia9XXhLqX94f4CkIr1MHoEBnlmQZDaGUoC6z\nI7XOydi4mrsZ40NheS+P3k3/7hiKngKhQwMd+wFL/cAKOLoArM+PCNtFZk/bRiyL\niQBlEyMcbqAHrnw2cPK7yN9jmlEViIFEH1B/KHTVCkRxcnIpVEYTQObsMu9UEOJ4\ny62Y9Vsrg+MqbhfP0UDjkqdhKyIkftaqffCapYAO6HWD6GkC/adpX/jW4DtwWwWe\nRSBukqlxtaUp6TsRW76/eM9mBHxPr9/YwNBmoE06wQKBgQDoIXMUQG8vrFEhPHRd\nGj23wGm1uXTA1KVkyuaxZ6TytviwYJWk5H+R1pGOzn2YPWX/dG6Qm005vwj87LGH\n8oS5OxBcuYE6AIWK2yaC4810WXL11JtXEInSPfHMLzK41uAXV6E3hl0GptmcRWbh\n5H6zLnbGY3ZeTZV1ZKh9/ddx1QKBgQDgVRxmoDJKekwjbiDDfYM5YJGYvm0nu3nP\nyjU6fMyuvCbg1guCj5DHqAoZPCnhayoHHanEbpCt1GFS2mc6ZdGVr0l7lbtf/k0V\npemar/oK+LR5PsWGIKbagx5qv1g2WI99H3lOuLNhmn0HWVNccQ+EBjLlvBr0UrL7\nwyEnVqD4QQKBgQDQL9e/DP7rGbd1gHu4WGWL3GSyV87vdoeTeyolZ5gXGqS1wxnS\n1h/Xk0HeezFHDaHh1vGmfbJoHP4ZoMqj64y/d8p37uOIOpmKbHwAngBQ3jxtX62m\nCy4gQfAPOTFbd1Npe+0aGEZsRc4bCl94Lu63Eu/xg5jQgPKPY6R9wuCrtQKBgC9D\nv2gf+HiYq9ILMfv+Rdeg8QwtkvH8Hf4ZrH1WLgniuo5EishHV0m5recDNg+4dHJr\nXYl1giYdySObwIQdT7sp42GWepQPEE6vVjixOw10uRGSmCtaVc1UMuRqzDsnDZRf\nPT/IyoKV+iHCQD4J1CsM40xkBYnUosFIq4OOTPwBAoGADeLL9zJgJ2sjRKpnnGiM\nlVDRbh0UcKLBXeLCFVcTbhztQk9Ni9gHGg10/CpHeHeSYl+vgcm00XPTGLqToGok\nUr2X0xhxdbnhoAg/5h1S/P/k1XT+CIM+fXSJ6+JLxXHqp5uGQh8Ve9luX+PFXncy\nWuuaM0V4xDr2WFwqrwfZ1rQ=\n-----END PRIVATE KEY-----\n",
+  "client_email": "like-zapier-branddrop@repricer-413213.iam.gserviceaccount.com",
+  "client_id": "100414830387621919148",
+  "auth_uri": "https://accounts.google.com/o/oauth2/auth",
+  "token_uri": "https://oauth2.googleapis.com/token",
+  "auth_provider_x509_cert_url": "https://www.googleapis.com/oauth2/v1/certs",
+  "client_x509_cert_url": "https://www.googleapis.com/robot/v1/metadata/x509/like-zapier-branddrop%40repricer-413213.iam.gserviceaccount.com",
+  "universe_domain": "googleapis.com"
+}

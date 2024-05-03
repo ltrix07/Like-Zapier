@@ -1,0 +1,32 @@
+[
+    {"shop_name": "Angel",
+     "table_id": "14nRkjvRri3qedAGssDIagoHv-JVUDtEvO50WTocVWZc",
+     "credentials": {"refresh_token": "Atzr|IwEBIKHIjlECQKX9hrRDtFRSyek_51Mt4QeLy67HhJb_e79-ULprP2w9eFfhMCthswFiqGpk_mZhK7VTrZlvGCA6xf2tMuZecirCujyMvIgNcNFOAD0Dfun2QmZbRDuUlNxwOttTxgbgVA5S7lpHu0auDFJTLPWe6crFkBRN9ZcM-KgLU2Sxw90gp94ysabzYJP_6B4995ghVF7H5GqJmTCEbKxrQM9IoHVi9RLjAKKuB2mlydzGUXE2bYYKm42ibKaK3kfv9vG8Sl3cZ8gK1W6H3TtZqXG-4tBsER-XwuHFHePSsoDUk6IncU8JIxlV6lK8hjY",
+                     "lwa_app_id": "amzn1.application-oa2-client.c0a6ae54ef6042a4b65c8389cc022804",
+                     "lwa_client_secret": "amzn1.oa2-cs.v1.3eb664ee4c4ed11bd300c953694122a5eb5545b591bd4b51efd3abafa701c6c2"}
+     },
+    {"shop_name": "Martin",
+     "table_id": "1ERpuemWChQsrmd_L2B1mQj92UXxW13Qrqs0YGDT57Lk",
+     "credentials": {"refresh_token": "Atzr|IwEBIEZcGzkY_Rz_pUXVjCyhgNEsfLkFxjP-GpSEdrxxw36g89b9kAMTkeePU0vplgaI5iJkE5O5gaPYiiT_YvbXZA4UkarNGRU37vMRCH855y9I-jlJ8oMkSWtYFZeD-zeAFB7tV-lMgUlM-BiMkZcvnSq7Isi7XV0Q8R76c1GyPbyZQk-YEq7Auhi5xHTdDxU4xsgAPRdX-6nQHXVw7f77gzL3q2E3C-Gl7AQh3y58_PAHcOZSDLEArpa-E6PujIpPbLeOnpF415lBCkJi38jzmKPxGSbotXVzN6_DBkn-yBm9L9nOUbIozSrJAqVBHXvGJjo",
+                     "lwa_app_id": "amzn1.application-oa2-client.aa585d14ec304186844d6c173a6a6135",
+                     "lwa_client_secret": "amzn1.oa2-cs.v1.3a59ecf232157dff74dfdd2b989b05a0016e7bb6d40e58e98a3a82b907bf25c1"}
+     },
+    {"shop_name": "Cartier",
+     "table_id": "1Nh5pYVQ17EZOSQDzvyf8fdMUE8ol-92BpaFH-RKqEEk",
+     "credentials": {"refresh_token": "Atzr|IwEBIE_CYsnk_ErglAcKl3oQbnn0flbWwdOoP6i-8qQ7BYNt4zS2yXQ9yLWkxdvA1aWxUnBttnCpu2dJj7eMRmByXzJhTIOeDVSSiaOQYwfCqEchU2H_nZY0pg0kn6hq5KEZ4N7Dc4H35R6Yf_Kkr_OEmcSEJ8YZfFG-JmnNNwQvEGhKLw5jFF6h5xEbb84I8kvpel5bkLyiwFQFNIWZhbYtkUld1q_eXPRVa9teloCfUZOblyZWLQbCJBmHldpwVgV4sVhBYp5mm-JEi_uafLokpvlMLYqPQWMEcUldqv0D1azaVGRbL3SSgbfeeOvQtqBFBq8",
+                     "lwa_app_id": "amzn1.application-oa2-client.fd927d328985438f9c09c1e6cab2fb80",
+                     "lwa_client_secret": "amzn1.oa2-cs.v1.0f93615285bb1086b82bfd86ba9b8208216bce3ccef02450ef1020a76846a3fa"}
+     },
+    {"shop_name": "Donald",
+     "table_id": "1Z0xxbhMJEyJrOreseHMynqxkoLP3YjaM2Z9cG76eqIU",
+     "credentials": {"refresh_token": "Atzr|IwEBIKdjfD5QVfeO9LXuLWEZuKuqk6rkwv8HVSDvLnwhBR1Ax2V5nK8U26pUZOqtVN7Jpyuz4cmBUFsMeJLzlqUzsXLSoLEBxQbzzbZEjBASdaEcj17mTTUkVt2FyTIG4hdsxyHn28RMi4Eday_ekubJ_J5j-7RgprWxjYgq2tlwW8q0D2Czx0WUgAt4i2lmTv44vfO-ZKpazuvmY0MA-1b4eGQ1ES899PfZWiiSiSfohNZBA0DWrdDMAZ_U5hWkSqDdM-YKw1ON882QZyhZTPGSgFT29w2s5GRwoKxSFHDGbsaDHcN9WI-8I3TSApF36q7fRYy_cj7-XpCcrd0kUrcRRzfJ",
+                     "lwa_app_id": "amzn1.application-oa2-client.d3335c8bfa5f4beaa06cade6f410be86",
+                     "lwa_client_secret": "amzn1.oa2-cs.v1.d2fb67345eebb9a765649b0809bf6ad59ff5d99abf5fef636627a9adec1fccc5"}
+     },
+    {"shop_name": "Belarus",
+     "table_id": "1p_dSMW6C9fCxwcPoiQ30O_0yODV2YV87h_rNKh5deHE",
+     "credentials": {"refresh_token": "Atzr|IwEBIO2mOeblLCSJndyMsG741n-IgRoZW41DfPrtm4yMdkQL-mC_05SinJnYQN0jedCfA3EPQ3ZXHhvt0hb25ZT1UrJxhYDpOhi-uDPXyUU8CAXzNTpfbUNhvk7eu8vpINMxq7jaFRU4_cw5esD7iw8Bni5DKtTyJL7zpeb9KXvK10KcaLN3lIjZQmE5rzQXK2s9GOyaG2B57cbaFQNPYIRjD_lBHdfk65KapMnVmv_sqwCepjtH3vb_cRW7PHVwvwkxs8QVRyh2if1KEkOe6JcwlpOvpA_Mjy_DWguBsAspg4R6tSRjOni47lR0Xq-TJlzYobrZ1XH62HZbPRASD45l3TTg",
+                     "lwa_app_id": "amzn1.application-oa2-client.624ce083902c405dba7af10df2a6cfec",
+                     "lwa_client_secret": "amzn1.oa2-cs.v1.d1e1ab4098e601ee41a2c4ce5cf005c7186980d4c17d60d8e549b50c5b9d6513"}
+     }
+]
