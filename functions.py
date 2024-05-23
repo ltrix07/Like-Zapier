@@ -1,105 +1,136 @@
-import sp_api.base.exceptions
-from sp_api.base import Marketplaces
-from sp_api.api import Orders
-import os.path
-from googleapiclient.discovery import build
-from googleapiclient.errors import HttpError
-from google.oauth2.service_account import Credentials
-import time
-from google.oauth2 import service_account
+import re
 import json
-from params import creds_google_path
+import time
+from tqdm import tqdm
+from typing import Any
+from datetime import datetime
+from datetime import time as tm
 
 
-class WorkWithAmazonAPI:
-    def __init__(self, refresh_token, lwa_app_id, lwa_client_secret):
-        self.refresh_token = refresh_token
-        self.lwa_app_id = lwa_app_id
-        self.lwa_client_secret = lwa_client_secret
-        self.credentials = {
-            "refresh_token": self.refresh_token,
-            "lwa_app_id": self.lwa_app_id,
-            "lwa_client_secret": self.lwa_client_secret
-        }
+def string_conversion(string: str, methods=None) -> str:
+    if methods is None:
+        return re.sub(r'\s+', '', string.lower())
+    if methods == 'lower':
+        return string.lower()
 
-    def get_all_orders(self, created_after, orders_status):
-        res = Orders(credentials=self.credentials, marketplace=Marketplaces.US)
+
+def read_json(file_path: str) -> dict:
+    with open(file_path, 'r') as file:
+        return json.load(file)
+
+
+def months_get() -> tuple:
+    month_now = datetime.now().month
+    if month_now == 1:
+        month_prev = 12
+    else:
+        month_prev = month_now - 1
+
+    return month_now, month_prev
+
+
+def get_index_of_column(headers: list, columns_names: dict) -> dict:
+    indices = {}
+    for header, col_name in columns_names.items():
+        index = None
         try:
-            orders = res.get_orders(CreatedAfter=created_after.isoformat(),
-                                    OrderStatuses=orders_status)
-        except sp_api.base.exceptions.SellingApiRequestThrottledException:
-            time.sleep(60)
-            self.get_all_orders(created_after, orders_status)
-        else:
-            return orders.payload["Orders"]
-
-    def get_one_order_items(self, order_id):
-        res = Orders(credentials=self.credentials, marketplace=Marketplaces.US)
-        try:
-            order = res.get_order_items(order_id=order_id)
-        except sp_api.base.exceptions.SellingApiRequestThrottledException:
-            time.sleep(60)
-            self.get_one_order_items(order_id)
-        else:
-            return order.payload
+            index = headers.index(string_conversion(col_name))
+        except ValueError:
+            pass
+        indices[header] = index
+    return indices
 
 
-class WorkWithTable:
-    def __init__(self, table_id):
-        self.table_id = table_id
-        self.req_count = 0
-        creds = Credentials.from_service_account_file(creds_google_path,
-                                                      scopes=['https://www.googleapis.com/auth/spreadsheets'])
-        self.service = build('sheets', 'v4', credentials=creds)
-
-    def get_headers(self, worksheet):
-        request = self.service.spreadsheets().values().get(
-            spreadsheetId=self.table_id,
-            range=f'{worksheet}!1:1'
-        ).execute()
-
-        return request['values'][0]
-
-    def get_all_info(self, worksheet):
-        request = self.service.spreadsheets().values().get(
-            spreadsheetId=self.table_id,
-            range=worksheet
-        ).execute()
-
-        return request['values']
-
-    def get_index_of_column(self, worksheet, columns_names):
-        all_columns = self.get_headers(worksheet)
-        indices = {}
-        for header, col_name in columns_names.items():
-            index = all_columns.index(col_name)
-            indices[header] = index
-
-        return indices
-
-    def add_to_table(self, worksheet, data, table_range, value_input_options):
-        
-
-class ProcessingData:
-    def __init__(self):
-        pass
-
-    @staticmethod
-    def from_json(file_path):
-        with open(file_path, 'r') as file:
-            data = json.load(file)
-
-        return data
-
-    @staticmethod
-    def look_columns(table_data, *args):
-        indices = {}
-
-        for arg in args:
+def filter_by_index(data: list, index: int) -> list:
+    result = []
+    if index is not None:
+        for row in data[1:]:
             try:
-                index = table_data.index(arg)
-                indices[arg] = index
-            except ValueError:
-                indices[arg] = None
+                result.append(row[index])
+            except IndexError:
+                result.append('')
+    else:
+        return []
 
-        return indices
+    return result
+
+
+def list_get(my_list: list, index: int, default=None) -> Any:
+    try:
+        return my_list[index]
+    except IndexError:
+        return default
+
+
+def get_next_number(numbers: list) -> int:
+    if list_get(numbers, -1) != '':
+        try:
+            return int(list_get(numbers, -1)) + 1
+        except ValueError:
+            return 1
+        except TypeError:
+            return 1
+    else:
+        return 1
+
+
+def in_prev_month_or_not(date: str, month: str) -> bool:
+    less_10_mor = datetime.fromisoformat(date.replace("Z", "+00:00")).time() < tm(10, 0, 0)
+    first_day_or_not = datetime.fromisoformat(date.replace("Z", "+00:00")).day == 1
+    now_month_or_not = datetime.fromisoformat(date.replace("Z", "+00:00")).month == month
+
+    if less_10_mor and first_day_or_not and now_month_or_not:
+        return False
+
+    if now_month_or_not is not True:
+        return False
+
+    return True
+
+
+def filter_orders(
+        orders: list, order_ids_in_table: list, number_list: list, amz_handler: object, shop_name: str,
+        worksheet: str, timeout_btw_req=1
+) -> list:
+    result = []
+    number = get_next_number(number_list)
+    for i, order in enumerate(tqdm(orders, desc=f'Processing orders on {shop_name} in worksheet "{worksheet}"')):
+        what_month = in_prev_month_or_not(order.get('PurchaseDate'), worksheet)
+
+        if what_month and order.get('AmazonOrderId') not in order_ids_in_table:
+            order_item_inf = amz_handler.get_one_order_items(order.get('AmazonOrderId'))
+
+            for item in order_item_inf.get('OrderItems'):
+                order_data = {
+                    'number': number,
+                    'business_customer': order.get('IsBusinessOrder'),
+                    'phone_number': order.get('ShippingAddress', {}).get('Phone'),
+                    'state': order.get('ShippingAddress', {}).get('StateOrRegion'),
+                    'latest_delivery_date': order.get('LatestDeliveryDate'),
+                    'purchase_date': order.get('PurchaseDate'),
+                    'quantity': order.get('NumberOfItemsUnshipped'),
+                    'amazon_id': order.get('AmazonOrderId'),
+                    'selling_price': item.get('ItemPrice', {}).get('Amount'),
+                    'shipping_price': item.get('ShippingPrice', {}).get('Amount'),
+                    'asin': item.get('ASIN'),
+                    'sku': item.get('SellerSKU')
+                }
+                result.append(order_data)
+                number += 1
+
+            time.sleep(timeout_btw_req)
+    return result
+
+
+def collect_data_for_append(data_list: list, indices: dict, len_headers_list: int) -> list:
+    result = []
+    for data_dict in data_list:
+        row = [''] * len_headers_list
+        for key, col in indices.items():
+            if col is not None and key in data_dict:
+                row[col] = data_dict[key]
+
+        result.append(row)
+
+    return result
+

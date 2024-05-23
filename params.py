@@ -6,14 +6,17 @@ creds_google_path = 'creds/creds_google.json'
 
 # Google sheet columns names
 columns_names = {
-    'number': '№',
+    'number': 'Number',
     'business_customer': 'Business customer',
-    'state': 'STATE',
-    'latest_delivery_date': 'Lastest\nDelivery\nDate',
-    'purchase_date': 'Дата заказа',
-    'quantity': 'Q',
-    'amazon_id': 'ID заказа амазона',
-    'amount': 'ID заказа амазона',
+    'phone_number': 'Phone Number',
+    'state': 'State',
+    'latest_delivery_date': 'Lastest Delivery Date',
+    'purchase_date': 'Date of purchase',
+    'quantity': 'Quantity',
+    'amazon_id': 'Order ID Amazon',
+    'selling_price': 'Selling price',
+    'shipping_price': 'Selling shipping price',
     'asin': 'ASIN',
+    'sku': 'SKU',
 }
 
