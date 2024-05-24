@@ -51,8 +51,7 @@ class WorkWithTable:
         self.req_count = 0
         creds = Credentials.from_service_account_file(creds_google_path,
                                                       scopes=['https://www.googleapis.com/auth/spreadsheets'])
-        self.service = build('sheets', 'v4', credentials=creds,
-                             requestBuilder=HttpError)
+        self.service = build('sheets', 'v4', credentials=creds)
 
     def get_headers(self, worksheet: str) -> list:
         request = self.service.spreadsheets().values().get(
