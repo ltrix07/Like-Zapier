@@ -51,7 +51,6 @@ class WorkWithTable:
         self.req_count = 0
         creds = Credentials.from_service_account_file(creds_google_path,
                                                       scopes=['https://www.googleapis.com/auth/spreadsheets'])
-        creds.authorize(Request(timeout=600))
         self.service = build('sheets', 'v4', credentials=creds,
                              requestBuilder=HttpError)
 
