@@ -94,6 +94,10 @@ def filter_orders(
 ) -> list:
     result = []
     number = get_next_number(number_list)
+
+    if orders is None:
+        orders = []
+
     for i, order in enumerate(tqdm(orders, desc=f'Processing orders on {shop_name} in worksheet "{worksheet}"')):
         what_month = in_prev_month_or_not(order.get('PurchaseDate'), worksheet)
 
