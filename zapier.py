@@ -29,13 +29,13 @@ def processing(table_handler, amz_handler, worksheet, shop_name):
     table_handler.append_to_table(worksheet, data_to_table)
 
 
-if __name__ == '__main__':
+def start_zapier(timeout_btw_shops):
     shops_inf = read_json('./creds/spreadsheets_info.json')
     circle = 1
     while True:
         now = datetime.now()
         print(f'--- Circle of check {circle}. {now.day}.{now.month}.{now.year} \
-{now.hour if len(str(now.hour)) > 1 else f"0{now.hour}"}:{now.minute if len(str(now.minute)) > 1 else f"0{now.minute}"} ---')
+    {now.hour if len(str(now.hour)) > 1 else f"0{now.hour}"}:{now.minute if len(str(now.minute)) > 1 else f"0{now.minute}"} ---')
 
         for shop_inf in shops_inf:
             month_now, month_prev = months_get()
@@ -55,7 +55,12 @@ if __name__ == '__main__':
             processing(table_worker, amz_worker, month_now, shop_name)
             processing(table_worker, amz_worker, month_prev, shop_name)
             print('')
+            time.sleep(timeout_btw_shops)
 
         circle += 1
+
+
+if __name__ == '__main__':
+    start_zapier(10)
 
 
