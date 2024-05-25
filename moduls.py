@@ -2,6 +2,7 @@ import sp_api.base.exceptions
 import os.path
 import time
 import json
+import socket
 from functions import *
 from params import creds_google_path
 from sp_api.base import Marketplaces
@@ -67,9 +68,14 @@ class WorkWithTable:
         request = self.service.spreadsheets().values().get(
             spreadsheetId=self.table_id,
             range=worksheet
-        ).execute()
+        )
 
-        return request['values']
+        while True:
+            try:
+                response = request.execute()
+                return response.get('values')
+            except socket.timeout:
+                time.sleep(20)
 
     def append_to_table(self, worksheet: str, data: list) -> dict:
         body = {
@@ -83,7 +89,9 @@ class WorkWithTable:
             insertDataOption='INSERT_ROWS',
             body=body
         )
-        response = request.execute()
-
-        return response
-
+        while True:
+            try:
+                response = request.execute()
+                return response
+            except socket.timeout:
+                time.sleep(20)
