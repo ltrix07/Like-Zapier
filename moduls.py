@@ -1,3 +1,4 @@
+import googleapiclient.errors
 import sp_api.base.exceptions
 import os.path
 import time
@@ -76,6 +77,8 @@ class WorkWithTable:
                 return response.get('values')
             except socket.timeout:
                 time.sleep(20)
+            except googleapiclient.errors.HttpError:
+                time.sleep(60)
 
     def append_to_table(self, worksheet: str, data: list) -> dict:
         body = {
@@ -95,3 +98,5 @@ class WorkWithTable:
                 return response
             except socket.timeout:
                 time.sleep(20)
+            except googleapiclient.errors.HttpError:
+                time.sleep(60)
