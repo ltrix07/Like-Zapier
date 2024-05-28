@@ -32,7 +32,10 @@ class WorkWithAmazonAPI:
                                     OrderStatuses=orders_status)
         except sp_api.base.exceptions.SellingApiRequestThrottledException:
             time.sleep(60)
-            self.get_all_orders(created_after, orders_status)
+            return self.get_all_orders(created_after, orders_status)
+        except sp_api.base.exceptions.SellingApiServerException:
+            time.sleep(60)
+            return self.get_all_orders(created_after, orders_status)
         else:
             return orders.payload["Orders"]
 
@@ -42,7 +45,10 @@ class WorkWithAmazonAPI:
             order = res.get_order_items(order_id=order_id)
         except sp_api.base.exceptions.SellingApiRequestThrottledException:
             time.sleep(60)
-            self.get_one_order_items(order_id)
+            return self.get_one_order_items(order_id)
+        except sp_api.base.exceptions.SellingApiServerException:
+            time.sleep(60)
+            return self.get_one_order_items(order_id)
         else:
             return order.payload
 
