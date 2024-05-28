@@ -11,7 +11,8 @@ sys.stdout.reconfigure(encoding='utf-8')
 circle_of_check = 1
 
 
-def processing(table_handler, amz_handler, worksheet, shop_name):
+def processing(orders: list, table_handler: object, amz_handler: object,
+               worksheet: str | int, shop_name: str, prep_case: str | None = None) -> dict:
     in_table = table_handler.get_all_info(worksheet)
     indices = get_index_of_column(
         [string_conversion(elem) for elem in in_table[0]],
@@ -21,12 +22,10 @@ def processing(table_handler, amz_handler, worksheet, shop_name):
     number = filter_by_index(in_table, indices.get('number'))
     order_id = filter_by_index(in_table, indices.get('amazon_id'))
 
-    today = datetime.now()
-    orders = amz_handler.get_all_orders(created_after=today - timedelta(days=1), orders_status='Unshipped')
+    new_orders = filter_orders(orders, order_id, amz_handler, shop_name, worksheet)
 
-    new_orders = filter_orders(orders, order_id, number, amz_handler, shop_name, worksheet)
-    data_to_table = collect_data_for_append(new_orders, indices, len(in_table[0]))
-    table_handler.append_to_table(worksheet, data_to_table)
+    data_to_table = collect_data_for_append(new_orders, indices, len(in_table[0]), number, prep_case)
+    return table_handler.append_to_table(worksheet, data_to_table)
 
 
 def start_zapier(timeout_btw_shops):
@@ -52,8 +51,23 @@ def start_zapier(timeout_btw_shops):
                 lwa_client_secret=lwa_client_secret
             )
 
-            processing(table_worker, amz_worker, month_now, shop_name)
-            processing(table_worker, amz_worker, month_prev, shop_name)
+            today = datetime.now()
+            orders = amz_worker.get_all_orders(created_after=today - timedelta(days=2), orders_status='Unshipped')
+
+            sheets = table_worker.get_sheets_names()
+
+            if month_now in sheets:
+                processing(orders, table_worker, amz_worker, month_now, shop_name)
+            if month_prev in sheets:
+                processing(orders, table_worker, amz_worker, month_prev, shop_name)
+            if f'azat_{month_now}' in sheets:
+                processing(orders, table_worker, amz_worker, f'azat_{month_now}', shop_name, prep_case='azat')
+            if f'azat_{month_prev}' in sheets:
+                processing(orders, table_worker, amz_worker, f'azat_{month_prev}', shop_name, prep_case='azat')
+            if f'bro_{month_now}' in sheets:
+                processing(orders, table_worker, amz_worker, f'bro_{month_now}', shop_name, prep_case='bro')
+            if f'bro_{month_prev}' in sheets:
+                processing(orders, table_worker, amz_worker, f'bro_{month_prev}', shop_name, prep_case='bro')
             print('')
             time.sleep(timeout_btw_shops)
 

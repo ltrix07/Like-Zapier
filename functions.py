@@ -8,7 +8,7 @@ from datetime import time as tm
 
 
 def string_conversion(string: str, methods=None) -> str:
-    if methods is None:
+    if methods is None or methods == 'lower&split':
         return re.sub(r'\s+', '', string.lower())
     if methods == 'lower':
         return string.lower()
@@ -26,7 +26,7 @@ def months_get() -> tuple:
     else:
         month_prev = month_now - 1
 
-    return month_now, month_prev
+    return str(month_now), str(month_prev)
 
 
 def get_index_of_column(headers: list, columns_names: dict) -> dict:
@@ -75,6 +75,8 @@ def get_next_number(numbers: list) -> int:
 
 
 def in_prev_month_or_not(date: str, month: str) -> bool:
+    if '_' in month:
+        month = int(month.split('_')[1])
     less_10_mor = datetime.fromisoformat(date.replace("Z", "+00:00")).time() < tm(10, 0, 0)
     first_day_or_not = datetime.fromisoformat(date.replace("Z", "+00:00")).day == 1
     now_month_or_not = datetime.fromisoformat(date.replace("Z", "+00:00")).month == month
@@ -89,11 +91,10 @@ def in_prev_month_or_not(date: str, month: str) -> bool:
 
 
 def filter_orders(
-        orders: list, order_ids_in_table: list, number_list: list, amz_handler: object, shop_name: str,
+        orders: list, order_ids_in_table: list, amz_handler: object, shop_name: str,
         worksheet: str, timeout_btw_req=1
 ) -> list:
-    result = []
-    number = get_next_number(number_list)
+    main = []
 
     if orders is None:
         orders = []
@@ -105,8 +106,14 @@ def filter_orders(
             order_item_inf = amz_handler.get_one_order_items(order.get('AmazonOrderId'))
 
             for item in order_item_inf.get('OrderItems'):
+                prep_name = 'no_prep'
+                if 'azat' in item.get('SellerSKU').lower():
+                    prep_name = 'azat'
+                elif 'bro' in item.get('SellerSKU').lower():
+                    prep_name = 'bro'
+
                 order_data = {
-                    'number': number,
+                    'number': 0,
                     'business_customer': order.get('IsBusinessOrder'),
                     'phone_number': order.get('ShippingAddress', {}).get('Phone'),
                     'state': order.get('ShippingAddress', {}).get('StateOrRegion'),
@@ -117,24 +124,32 @@ def filter_orders(
                     'selling_price': item.get('ItemPrice', {}).get('Amount'),
                     'shipping_price': item.get('ShippingPrice', {}).get('Amount'),
                     'asin': item.get('ASIN'),
-                    'sku': item.get('SellerSKU')
+                    'sku': item.get('SellerSKU'),
+                    '__prep_name__': prep_name
                 }
-                result.append(order_data)
-                number += 1
+                main.append(order_data)
 
             time.sleep(timeout_btw_req)
-    return result
+    return main
 
 
-def collect_data_for_append(data_list: list, indices: dict, len_headers_list: int) -> list:
+def collect_data_for_append(
+        data_list: list, indices: dict, len_headers_list: int, number_list: list,
+        prep_case: str = 'no_prep'
+) -> list:
     result = []
+    number = get_next_number(number_list)
     for data_dict in data_list:
-        row = [''] * len_headers_list
-        for key, col in indices.items():
-            if col is not None and key in data_dict:
-                row[col] = data_dict[key]
+        if data_dict.get('__prep_name__') == prep_case:
+            row = [''] * len_headers_list
+            for key, col in indices.items():
+                if col is not None and key in data_dict:
+                    if key == 'number':
+                        row[col] = number
+                    else:
+                        row[col] = data_dict[key]
 
-        result.append(row)
+            result.append(row)
+            number += 1
 
     return result
-

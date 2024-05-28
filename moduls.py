@@ -25,7 +25,7 @@ class WorkWithAmazonAPI:
             "lwa_client_secret": self.lwa_client_secret
         }
 
-    def get_all_orders(self, created_after: datetime, orders_status: str) -> dict:
+    def get_all_orders(self, created_after: datetime, orders_status: str) -> list:
         res = Orders(credentials=self.credentials, marketplace=Marketplaces.US)
         try:
             orders = res.get_orders(CreatedAfter=created_after.isoformat(),
@@ -81,6 +81,25 @@ class WorkWithTable:
             try:
                 response = request.execute()
                 return response.get('values')
+            except socket.timeout:
+                time.sleep(20)
+            except googleapiclient.errors.HttpError:
+                time.sleep(60)
+
+    def get_sheets_names(self) -> dict:
+        request = self.service.spreadsheets().get(
+            spreadsheetId=self.table_id
+        )
+        while True:
+            try:
+                result = []
+                response = request.execute()
+                sheets = response.get('sheets')
+                for sheet in sheets:
+                    if sheet.get("properties"):
+                        result.append(sheet.get("properties").get('title'))
+
+                return result
             except socket.timeout:
                 time.sleep(20)
             except googleapiclient.errors.HttpError:

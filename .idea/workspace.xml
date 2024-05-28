@@ -4,7 +4,12 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="66dbb2b5-1235-4ae8-956a-b4d1648e93b0" name="Changes" comment="global fix" />
+    <list default="true" id="66dbb2b5-1235-4ae8-956a-b4d1648e93b0" name="Changes" comment="fix error with sp_api">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/functions.py" beforeDir="false" afterPath="$PROJECT_DIR$/functions.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/moduls.py" beforeDir="false" afterPath="$PROJECT_DIR$/moduls.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/zapier.py" beforeDir="false" afterPath="$PROJECT_DIR$/zapier.py" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -96,7 +101,95 @@
       <option name="project" value="LOCAL" />
       <updated>1716502302578</updated>
     </task>
-    <option name="localTasksCounter" value="2" />
+    <task id="LOCAL-00002" summary="global fix">
+      <option name="closed" value="true" />
+      <created>1716503053478</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1716503053478</updated>
+    </task>
+    <task id="LOCAL-00003" summary="global fix">
+      <option name="closed" value="true" />
+      <created>1716503062431</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1716503062431</updated>
+    </task>
+    <task id="LOCAL-00004" summary="global fix">
+      <option name="closed" value="true" />
+      <created>1716503128710</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1716503128710</updated>
+    </task>
+    <task id="LOCAL-00005" summary="timeout error fix">
+      <option name="closed" value="true" />
+      <created>1716537360375</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1716537360375</updated>
+    </task>
+    <task id="LOCAL-00006" summary="timeout error fix">
+      <option name="closed" value="true" />
+      <created>1716537601330</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1716537601330</updated>
+    </task>
+    <task id="LOCAL-00007" summary="timeout error fix">
+      <option name="closed" value="true" />
+      <created>1716537950634</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1716537950634</updated>
+    </task>
+    <task id="LOCAL-00008" summary="timeout error fix">
+      <option name="closed" value="true" />
+      <created>1716538570954</created>
+      <option name="number" value="00008" />
+      <option name="presentableId" value="LOCAL-00008" />
+      <option name="project" value="LOCAL" />
+      <updated>1716538570954</updated>
+    </task>
+    <task id="LOCAL-00009" summary="fix error with NoneType iter">
+      <option name="closed" value="true" />
+      <created>1716560951952</created>
+      <option name="number" value="00009" />
+      <option name="presentableId" value="LOCAL-00009" />
+      <option name="project" value="LOCAL" />
+      <updated>1716560951952</updated>
+    </task>
+    <task id="LOCAL-00010" summary="fix error timeout">
+      <option name="closed" value="true" />
+      <created>1716617955557</created>
+      <option name="number" value="00010" />
+      <option name="presentableId" value="LOCAL-00010" />
+      <option name="project" value="LOCAL" />
+      <updated>1716617955557</updated>
+    </task>
+    <task id="LOCAL-00011" summary="except googleapiclient.errors.HttpError">
+      <option name="closed" value="true" />
+      <created>1716810421984</created>
+      <option name="number" value="00011" />
+      <option name="presentableId" value="LOCAL-00011" />
+      <option name="project" value="LOCAL" />
+      <updated>1716810421984</updated>
+    </task>
+    <task id="LOCAL-00012" summary="fix error with sp_api">
+      <option name="closed" value="true" />
+      <created>1716889932106</created>
+      <option name="number" value="00012" />
+      <option name="presentableId" value="LOCAL-00012" />
+      <option name="project" value="LOCAL" />
+      <updated>1716889932106</updated>
+    </task>
+    <option name="localTasksCounter" value="13" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -112,6 +205,11 @@
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="global fix" />
-    <option name="LAST_COMMIT_MESSAGE" value="global fix" />
+    <MESSAGE value="timeout error fix" />
+    <MESSAGE value="fix error with NoneType iter" />
+    <MESSAGE value="fix error timeout" />
+    <MESSAGE value="except googleapiclient.errors.HttpError" />
+    <MESSAGE value="fix error with sp_api" />
+    <option name="LAST_COMMIT_MESSAGE" value="fix error with sp_api" />
   </component>
 </project>
