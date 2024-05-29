@@ -1,8 +1,8 @@
 # AMZ Creds
-spreadsheets_info_path = 'creds/spreadsheets_info.json'
+spreadsheets_info_path = './creds/spreadsheets_info.json'
 
 # Google creds
-creds_google_path = 'creds/creds_google.json'
+creds_google_path = './creds/creds_google.json'
 
 # Google sheet columns names
 columns_names = {

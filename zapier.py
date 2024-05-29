@@ -32,7 +32,7 @@ def processing(orders: list, table_handler: object, amz_handler: object,
 
 
 def start_zapier(timeout_btw_shops):
-    shops_inf = read_json('./creds/spreadsheets_info.json')
+    shops_inf = read_json(spreadsheets_info_path)
     circle = 1
     while True:
         now = datetime.now()
