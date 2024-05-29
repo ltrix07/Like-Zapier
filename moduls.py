@@ -25,29 +25,19 @@ class WorkWithAmazonAPI:
             "lwa_client_secret": self.lwa_client_secret
         }
 
-    def get_all_orders(self, orders_status: str, created_after: datetime | None = None,
-                       created_before: datetime | None = None) -> list:
+    def get_all_orders(self, orders_status: str, created_after: datetime) -> list:
         res = Orders(credentials=self.credentials, marketplace=Marketplaces.US)
         try:
-            orders = None
-            if created_after and created_before:
-                orders = res.get_orders(CreatedAfter=created_after.isoformat(),
-                                        CreatedBefore=created_before.isoformat(),
-                                        OrderStatuses=orders_status)
-            elif created_after:
-                orders = res.get_orders(CreatedAfter=created_after.isoformat(),
-                                        OrderStatuses=orders_status)
-            elif created_before:
-                orders = res.get_orders(CreatedBefore=created_before.isoformat(),
-                                        OrderStatuses=orders_status)
+            orders = res.get_orders(CreatedAfter=created_after.isoformat(),
+                                    OrderStatuses=orders_status)
         except sp_api.base.exceptions.SellingApiRequestThrottledException:
             time.sleep(60)
-            return self.get_all_orders(orders_status, created_after, created_before)
+            return self.get_all_orders(orders_status, created_after)
         except sp_api.base.exceptions.SellingApiServerException:
             time.sleep(60)
-            return self.get_all_orders(orders_status, created_after, created_before)
+            return self.get_all_orders(orders_status, created_after)
         else:
-            return orders.payload["Orders"] if orders else orders
+            return orders.payload["Orders"]
 
     def get_one_order_items(self, order_id: str) -> dict:
         res = Orders(credentials=self.credentials, marketplace=Marketplaces.US)
@@ -115,7 +105,8 @@ class WorkWithTable:
             except googleapiclient.errors.HttpError:
                 time.sleep(60)
 
-    def append_to_table(self, worksheet: str, data: list) -> dict:
+    def append_to_table(self, worksheet: str, data: list,
+                        value_input_option: str = 'INPUT_VALUE_OPTION_UNSPECIFIED') -> dict:
         body = {
             'values': data
         }
@@ -123,7 +114,7 @@ class WorkWithTable:
         request = self.service.spreadsheets().values().append(
             spreadsheetId=self.table_id,
             range=worksheet,
-            valueInputOption='RAW',
+            valueInputOption=value_input_option,
             insertDataOption='INSERT_ROWS',
             body=body
         )

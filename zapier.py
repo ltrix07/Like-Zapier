@@ -28,7 +28,7 @@ def processing(orders: list, table_handler: object, amz_handler: object,
         data_list=new_orders, indices=indices, len_headers_list=len(in_table[0]),
         number_list=number, prep_case=prep_case
     )
-    return table_handler.append_to_table(worksheet, data_to_table)
+    return table_handler.append_to_table(worksheet, data_to_table, 'USER_ENTERED')
 
 
 def start_zapier(timeout_btw_shops):
@@ -54,8 +54,8 @@ def start_zapier(timeout_btw_shops):
                 lwa_client_secret=lwa_client_secret
             )
 
-            today = datetime.now()
-            orders = amz_worker.get_all_orders(created_after=today - timedelta(days=5),
+            created_after = (datetime.now() - timedelta(days=1)).replace(hour=0, minute=0, second=0, microsecond=0)
+            orders = amz_worker.get_all_orders(created_after=created_after,
                                                orders_status='Unshipped')
 
             sheets = table_worker.get_sheets_names()
