@@ -25,19 +25,29 @@ class WorkWithAmazonAPI:
             "lwa_client_secret": self.lwa_client_secret
         }
 
-    def get_all_orders(self, created_after: datetime, orders_status: str) -> list:
+    def get_all_orders(self, orders_status: str, created_after: datetime | None = None,
+                       created_before: datetime | None = None) -> list:
         res = Orders(credentials=self.credentials, marketplace=Marketplaces.US)
         try:
-            orders = res.get_orders(CreatedAfter=created_after.isoformat(),
-                                    OrderStatuses=orders_status)
+            orders = None
+            if created_after and created_before:
+                orders = res.get_orders(CreatedAfter=created_after.isoformat(),
+                                        CreatedBefore=created_before.isoformat(),
+                                        OrderStatuses=orders_status)
+            elif created_after:
+                orders = res.get_orders(CreatedAfter=created_after.isoformat(),
+                                        OrderStatuses=orders_status)
+            elif created_before:
+                orders = res.get_orders(CreatedBefore=created_before.isoformat(),
+                                        OrderStatuses=orders_status)
         except sp_api.base.exceptions.SellingApiRequestThrottledException:
             time.sleep(60)
-            return self.get_all_orders(created_after, orders_status)
+            return self.get_all_orders(orders_status, created_after, created_before)
         except sp_api.base.exceptions.SellingApiServerException:
             time.sleep(60)
-            return self.get_all_orders(created_after, orders_status)
+            return self.get_all_orders(orders_status, created_after, created_before)
         else:
-            return orders.payload["Orders"]
+            return orders.payload["Orders"] if orders else orders
 
     def get_one_order_items(self, order_id: str) -> dict:
         res = Orders(credentials=self.credentials, marketplace=Marketplaces.US)

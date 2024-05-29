@@ -4,7 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="66dbb2b5-1235-4ae8-956a-b4d1648e93b0" name="Changes" comment="fix error with sp_api">
+    <list default="true" id="66dbb2b5-1235-4ae8-956a-b4d1648e93b0" name="Changes" comment="add azat, bro, changes">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/functions.py" beforeDir="false" afterPath="$PROJECT_DIR$/functions.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/moduls.py" beforeDir="false" afterPath="$PROJECT_DIR$/moduls.py" afterDir="false" />
@@ -189,7 +189,15 @@
       <option name="project" value="LOCAL" />
       <updated>1716889932106</updated>
     </task>
-    <option name="localTasksCounter" value="13" />
+    <task id="LOCAL-00013" summary="add azat, bro, changes">
+      <option name="closed" value="true" />
+      <created>1716929721161</created>
+      <option name="number" value="00013" />
+      <option name="presentableId" value="LOCAL-00013" />
+      <option name="project" value="LOCAL" />
+      <updated>1716929721161</updated>
+    </task>
+    <option name="localTasksCounter" value="14" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -210,6 +218,7 @@
     <MESSAGE value="fix error timeout" />
     <MESSAGE value="except googleapiclient.errors.HttpError" />
     <MESSAGE value="fix error with sp_api" />
-    <option name="LAST_COMMIT_MESSAGE" value="fix error with sp_api" />
+    <MESSAGE value="add azat, bro, changes" />
+    <option name="LAST_COMMIT_MESSAGE" value="add azat, bro, changes" />
   </component>
 </project>

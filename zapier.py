@@ -12,7 +12,7 @@ circle_of_check = 1
 
 
 def processing(orders: list, table_handler: object, amz_handler: object,
-               worksheet: str | int, shop_name: str, prep_case: str | None = None) -> dict:
+               worksheet: str | int, shop_name: str, prep_case: str = 'no_prep') -> dict:
     in_table = table_handler.get_all_info(worksheet)
     indices = get_index_of_column(
         [string_conversion(elem) for elem in in_table[0]],
@@ -24,7 +24,10 @@ def processing(orders: list, table_handler: object, amz_handler: object,
 
     new_orders = filter_orders(orders, order_id, amz_handler, shop_name, worksheet)
 
-    data_to_table = collect_data_for_append(new_orders, indices, len(in_table[0]), number, prep_case)
+    data_to_table = collect_data_for_append(
+        data_list=new_orders, indices=indices, len_headers_list=len(in_table[0]),
+        number_list=number, prep_case=prep_case
+    )
     return table_handler.append_to_table(worksheet, data_to_table)
 
 
@@ -52,7 +55,8 @@ def start_zapier(timeout_btw_shops):
             )
 
             today = datetime.now()
-            orders = amz_worker.get_all_orders(created_after=today - timedelta(days=2), orders_status='Unshipped')
+            orders = amz_worker.get_all_orders(created_after=today - timedelta(days=5),
+                                               orders_status='Unshipped')
 
             sheets = table_worker.get_sheets_names()
 

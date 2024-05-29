@@ -77,14 +77,19 @@ def get_next_number(numbers: list) -> int:
 def in_prev_month_or_not(date: str, month: str) -> bool:
     if '_' in month:
         month = int(month.split('_')[1])
+    else:
+        month = int(month)
     less_10_mor = datetime.fromisoformat(date.replace("Z", "+00:00")).time() < tm(10, 0, 0)
     first_day_or_not = datetime.fromisoformat(date.replace("Z", "+00:00")).day == 1
     now_month_or_not = datetime.fromisoformat(date.replace("Z", "+00:00")).month == month
 
+    if less_10_mor and first_day_or_not and month == datetime.now().month - 1:
+        return True
+
     if less_10_mor and first_day_or_not and now_month_or_not:
         return False
 
-    if now_month_or_not is not True:
+    if now_month_or_not is False:
         return False
 
     return True
@@ -101,7 +106,6 @@ def filter_orders(
 
     for i, order in enumerate(tqdm(orders, desc=f'Processing orders on {shop_name} in worksheet "{worksheet}"')):
         what_month = in_prev_month_or_not(order.get('PurchaseDate'), worksheet)
-
         if what_month and order.get('AmazonOrderId') not in order_ids_in_table:
             order_item_inf = amz_handler.get_one_order_items(order.get('AmazonOrderId'))
 
