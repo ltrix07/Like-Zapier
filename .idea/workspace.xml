@@ -4,11 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="66dbb2b5-1235-4ae8-956a-b4d1648e93b0" name="Changes" comment="creds_parse">
-      <change afterPath="$PROJECT_DIR$/add_shop.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/functions.py" beforeDir="false" afterPath="$PROJECT_DIR$/functions.py" afterDir="false" />
-    </list>
+    <list default="true" id="66dbb2b5-1235-4ae8-956a-b4d1648e93b0" name="Changes" comment="append add_shop.py for adding and deleting shops" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -282,7 +278,15 @@
       <option name="project" value="LOCAL" />
       <updated>1716995597265</updated>
     </task>
-    <option name="localTasksCounter" value="20" />
+    <task id="LOCAL-00020" summary="append add_shop.py for adding and deleting shops">
+      <option name="closed" value="true" />
+      <created>1717258267535</created>
+      <option name="number" value="00020" />
+      <option name="presentableId" value="LOCAL-00020" />
+      <option name="project" value="LOCAL" />
+      <updated>1717258267535</updated>
+    </task>
+    <option name="localTasksCounter" value="21" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -306,6 +310,7 @@
     <MESSAGE value="add azat, bro, changes" />
     <MESSAGE value="creds update" />
     <MESSAGE value="creds_parse" />
-    <option name="LAST_COMMIT_MESSAGE" value="creds_parse" />
+    <MESSAGE value="append add_shop.py for adding and deleting shops" />
+    <option name="LAST_COMMIT_MESSAGE" value="append add_shop.py for adding and deleting shops" />
   </component>
 </project>
