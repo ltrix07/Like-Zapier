@@ -1,6 +1,7 @@
 import re
 import json
 import time
+import os
 from tqdm import tqdm
 from typing import Any
 from datetime import datetime
@@ -14,9 +15,16 @@ def string_conversion(string: str, methods=None) -> str:
         return string.lower()
 
 
-def read_json(file_path: str) -> dict:
-    with open(file_path, 'r') as file:
-        return json.load(file)
+def read_json(file_path: str) -> dict | list:
+    if os.path.isfile(file_path):
+        with open(file_path, 'r') as file:
+            return json.load(file)
+    return []
+
+
+def write_json(file_path: str, data_to_write: list | dict):
+    with open(file_path, 'w') as file:
+        return json.dump(data_to_write, file, indent=4)
 
 
 def months_get() -> tuple:
