@@ -19,16 +19,19 @@ def processing(orders: list, table_handler: object, amz_handler: object,
         columns_names
     )
 
-    number = filter_by_index(in_table, indices.get('number'))
-    order_id = filter_by_index(in_table, indices.get('amazon_id'))
+    if indices.get('amazon_id'):
+        number = filter_by_index(in_table, indices.get('number'))
+        order_id = filter_by_index(in_table, indices.get('amazon_id'))
 
-    new_orders = filter_orders(orders, order_id, amz_handler, shop_name, worksheet)
+        new_orders = filter_orders(orders, order_id, amz_handler, shop_name, worksheet)
 
-    data_to_table = collect_data_for_append(
-        data_list=new_orders, indices=indices, len_headers_list=len(in_table[0]),
-        number_list=number, prep_case=prep_case
-    )
-    return table_handler.append_to_table(worksheet, data_to_table, 'USER_ENTERED')
+        data_to_table = collect_data_for_append(
+            data_list=new_orders, indices=indices, len_headers_list=len(in_table[0]),
+            number_list=number, prep_case=prep_case
+        )
+        return table_handler.append_to_table(worksheet, data_to_table, 'USER_ENTERED')
+    else:
+        return {'status': 'error', 'message': f'Not found column {indices.get("amazon_id")} in the table'}
 
 
 def start_zapier(timeout_btw_shops):

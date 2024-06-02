@@ -114,7 +114,7 @@ def filter_orders(
 
     for i, order in enumerate(tqdm(orders, desc=f'Processing orders on {shop_name} in worksheet "{worksheet}"')):
         what_month = in_prev_month_or_not(order.get('PurchaseDate'), worksheet)
-        if order_ids_in_table and what_month and order.get('AmazonOrderId') not in order_ids_in_table:
+        if what_month and order.get('AmazonOrderId') not in order_ids_in_table:
             order_item_inf = amz_handler.get_one_order_items(order.get('AmazonOrderId'))
 
             for item in order_item_inf.get('OrderItems'):

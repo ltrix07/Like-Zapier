@@ -4,9 +4,10 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="66dbb2b5-1235-4ae8-956a-b4d1648e93b0" name="Changes" comment="add .sh with install packages">
+    <list default="true" id="66dbb2b5-1235-4ae8-956a-b4d1648e93b0" name="Changes" comment="fix problem with infinity orders add when not found &quot;order id&quot; column">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/functions.py" beforeDir="false" afterPath="$PROJECT_DIR$/functions.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/zapier.py" beforeDir="false" afterPath="$PROJECT_DIR$/zapier.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -297,7 +298,15 @@
       <option name="project" value="LOCAL" />
       <updated>1717258840677</updated>
     </task>
-    <option name="localTasksCounter" value="22" />
+    <task id="LOCAL-00022" summary="fix problem with infinity orders add when not found &quot;order id&quot; column">
+      <option name="closed" value="true" />
+      <created>1717302027784</created>
+      <option name="number" value="00022" />
+      <option name="presentableId" value="LOCAL-00022" />
+      <option name="project" value="LOCAL" />
+      <updated>1717302027784</updated>
+    </task>
+    <option name="localTasksCounter" value="23" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -323,6 +332,7 @@
     <MESSAGE value="creds_parse" />
     <MESSAGE value="append add_shop.py for adding and deleting shops" />
     <MESSAGE value="add .sh with install packages" />
-    <option name="LAST_COMMIT_MESSAGE" value="add .sh with install packages" />
+    <MESSAGE value="fix problem with infinity orders add when not found &quot;order id&quot; column" />
+    <option name="LAST_COMMIT_MESSAGE" value="fix problem with infinity orders add when not found &quot;order id&quot; column" />
   </component>
 </project>
