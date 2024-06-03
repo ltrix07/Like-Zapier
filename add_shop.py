@@ -7,10 +7,16 @@ def add_shop(google_creds_path, shop_ifo_path):
         google_creds_info = read_json(google_creds_path)
         service_mail = google_creds_info.get('client_email')
         print(f"Before adding a store to the list, make sure the service mail has access to the table - {service_mail}")
+        creds = read_json(shop_ifo_path)
 
         shop_name = input('Input shop name: ').strip()
         if shop_name == 'q':
             break
+        for shop in creds:
+            if shop.get('shop_name') == shop_name:
+                print('This store is already in the data list')
+                break
+
         table_id = input('Input table_id: ').strip()
         if table_id == 'q':
             break
@@ -35,7 +41,6 @@ def add_shop(google_creds_path, shop_ifo_path):
                 }
             }
 
-            creds = read_json(shop_ifo_path)
             creds.append(data)
             write_json(shop_ifo_path, creds)
 

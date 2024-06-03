@@ -4,10 +4,8 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="66dbb2b5-1235-4ae8-956a-b4d1648e93b0" name="Changes" comment="orders created after 1 days ago">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/moduls.py" beforeDir="false" afterPath="$PROJECT_DIR$/moduls.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/zapier.py" beforeDir="false" afterPath="$PROJECT_DIR$/zapier.py" afterDir="false" />
+    <list default="true" id="66dbb2b5-1235-4ae8-956a-b4d1648e93b0" name="Changes" comment="orders created after 7 days ago + pagination">
+      <change beforePath="$PROJECT_DIR$/add_shop.py" beforeDir="false" afterPath="$PROJECT_DIR$/add_shop.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -362,7 +360,23 @@
       <option name="project" value="LOCAL" />
       <updated>1717409183198</updated>
     </task>
-    <option name="localTasksCounter" value="30" />
+    <task id="LOCAL-00030" summary="orders created after 7 days ago + pagination">
+      <option name="closed" value="true" />
+      <created>1717410968571</created>
+      <option name="number" value="00030" />
+      <option name="presentableId" value="LOCAL-00030" />
+      <option name="project" value="LOCAL" />
+      <updated>1717410968571</updated>
+    </task>
+    <task id="LOCAL-00031" summary="orders created after 7 days ago + pagination">
+      <option name="closed" value="true" />
+      <created>1717411041240</created>
+      <option name="number" value="00031" />
+      <option name="presentableId" value="LOCAL-00031" />
+      <option name="project" value="LOCAL" />
+      <updated>1717411041240</updated>
+    </task>
+    <option name="localTasksCounter" value="32" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -395,6 +409,7 @@
     <MESSAGE value="orders created after 3 days ago" />
     <MESSAGE value="orders created after 2 days ago" />
     <MESSAGE value="orders created after 1 days ago" />
-    <option name="LAST_COMMIT_MESSAGE" value="orders created after 1 days ago" />
+    <MESSAGE value="orders created after 7 days ago + pagination" />
+    <option name="LAST_COMMIT_MESSAGE" value="orders created after 7 days ago + pagination" />
   </component>
 </project>
