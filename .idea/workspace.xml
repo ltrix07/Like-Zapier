@@ -4,8 +4,9 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="66dbb2b5-1235-4ae8-956a-b4d1648e93b0" name="Changes" comment="orders created after 7 days ago + pagination">
-      <change beforePath="$PROJECT_DIR$/add_shop.py" beforeDir="false" afterPath="$PROJECT_DIR$/add_shop.py" afterDir="false" />
+    <list default="true" id="66dbb2b5-1235-4ae8-956a-b4d1648e93b0" name="Changes" comment="store in data list">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/functions.py" beforeDir="false" afterPath="$PROJECT_DIR$/functions.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -376,7 +377,15 @@
       <option name="project" value="LOCAL" />
       <updated>1717411041240</updated>
     </task>
-    <option name="localTasksCounter" value="32" />
+    <task id="LOCAL-00032" summary="store in data list">
+      <option name="closed" value="true" />
+      <created>1717411748360</created>
+      <option name="number" value="00032" />
+      <option name="presentableId" value="LOCAL-00032" />
+      <option name="project" value="LOCAL" />
+      <updated>1717411748360</updated>
+    </task>
+    <option name="localTasksCounter" value="33" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -410,6 +419,7 @@
     <MESSAGE value="orders created after 2 days ago" />
     <MESSAGE value="orders created after 1 days ago" />
     <MESSAGE value="orders created after 7 days ago + pagination" />
-    <option name="LAST_COMMIT_MESSAGE" value="orders created after 7 days ago + pagination" />
+    <MESSAGE value="store in data list" />
+    <option name="LAST_COMMIT_MESSAGE" value="store in data list" />
   </component>
 </project>
