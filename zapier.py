@@ -35,9 +35,9 @@ def processing(orders: list, table_handler: object, amz_handler: object,
 
 
 def start_zapier(timeout_btw_shops):
-    shops_inf = read_json(spreadsheets_info_path)
     circle = 1
     while True:
+        shops_inf = read_json(spreadsheets_info_path)
         now = datetime.now()
         print(f'--- Circle of check {circle}. {now.day}.{now.month}.{now.year} \
     {now.hour if len(str(now.hour)) > 1 else f"0{now.hour}"}:{now.minute if len(str(now.minute)) > 1 else f"0{now.minute}"} ---')
