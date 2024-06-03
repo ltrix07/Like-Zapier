@@ -4,9 +4,8 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="66dbb2b5-1235-4ae8-956a-b4d1648e93b0" name="Changes" comment="order of last 7 days">
+    <list default="true" id="66dbb2b5-1235-4ae8-956a-b4d1648e93b0" name="Changes" comment="less timeout btw shops">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/zapier.py" beforeDir="false" afterPath="$PROJECT_DIR$/zapier.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -321,7 +320,23 @@
       <option name="project" value="LOCAL" />
       <updated>1717317334488</updated>
     </task>
-    <option name="localTasksCounter" value="25" />
+    <task id="LOCAL-00025" summary="read json every circle">
+      <option name="closed" value="true" />
+      <created>1717397771885</created>
+      <option name="number" value="00025" />
+      <option name="presentableId" value="LOCAL-00025" />
+      <option name="project" value="LOCAL" />
+      <updated>1717397771885</updated>
+    </task>
+    <task id="LOCAL-00026" summary="less timeout btw shops">
+      <option name="closed" value="true" />
+      <created>1717398090275</created>
+      <option name="number" value="00026" />
+      <option name="presentableId" value="LOCAL-00026" />
+      <option name="project" value="LOCAL" />
+      <updated>1717398090275</updated>
+    </task>
+    <option name="localTasksCounter" value="27" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -349,6 +364,8 @@
     <MESSAGE value="add .sh with install packages" />
     <MESSAGE value="fix problem with infinity orders add when not found &quot;order id&quot; column" />
     <MESSAGE value="order of last 7 days" />
-    <option name="LAST_COMMIT_MESSAGE" value="order of last 7 days" />
+    <MESSAGE value="read json every circle" />
+    <MESSAGE value="less timeout btw shops" />
+    <option name="LAST_COMMIT_MESSAGE" value="less timeout btw shops" />
   </component>
 </project>
