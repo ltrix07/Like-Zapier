@@ -57,7 +57,7 @@ def start_zapier(timeout_btw_shops):
                 lwa_client_secret=lwa_client_secret
             )
 
-            created_after = (datetime.now() - timedelta(days=1)).replace(hour=0, minute=0, second=0, microsecond=0)
+            created_after = (datetime.now() - timedelta(days=7)).replace(hour=0, minute=0, second=0, microsecond=0)
             orders = amz_worker.get_all_orders(created_after=created_after,
                                                orders_status='Unshipped')
 
@@ -83,5 +83,3 @@ def start_zapier(timeout_btw_shops):
 
 if __name__ == '__main__':
     start_zapier(3)
-
-

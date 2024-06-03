@@ -27,17 +27,31 @@ class WorkWithAmazonAPI:
 
     def get_all_orders(self, orders_status: str, created_after: datetime) -> list:
         res = Orders(credentials=self.credentials, marketplace=Marketplaces.US)
-        try:
-            orders = res.get_orders(CreatedAfter=created_after.isoformat(),
-                                    OrderStatuses=orders_status)
-        except sp_api.base.exceptions.SellingApiRequestThrottledException:
-            time.sleep(60)
-            return self.get_all_orders(orders_status, created_after)
-        except sp_api.base.exceptions.SellingApiServerException:
-            time.sleep(60)
-            return self.get_all_orders(orders_status, created_after)
-        else:
-            return orders.payload["Orders"]
+        all_orders = []
+        next_token = None
+
+        while True:
+            try:
+                if next_token:
+                    response = res.get_orders(CreatedAfter=created_after.isoformat(),
+                                              OrderStatuses=[orders_status],
+                                              NextToken=next_token)
+                else:
+                    response = res.get_orders(CreatedAfter=created_after.isoformat(),
+                                              OrderStatuses=[orders_status])
+
+                all_orders.extend(response.payload.get("Orders", []))
+
+                # Проверка наличия следующей страницы
+                next_token = response.payload.get("NextToken")
+                if not next_token:
+                    break
+            except sp_api.base.exceptions.SellingApiRequestThrottledException:
+                time.sleep(60)
+            except sp_api.base.exceptions.SellingApiServerException:
+                time.sleep(60)
+
+        return all_orders
 
     def get_one_order_items(self, order_id: str) -> dict:
         res = Orders(credentials=self.credentials, marketplace=Marketplaces.US)
@@ -86,7 +100,7 @@ class WorkWithTable:
             except googleapiclient.errors.HttpError:
                 time.sleep(60)
 
-    def get_sheets_names(self) -> dict:
+    def get_sheets_names(self) -> list:
         request = self.service.spreadsheets().get(
             spreadsheetId=self.table_id
         )
