@@ -103,6 +103,11 @@ def in_prev_month_or_not(date: str, month: str) -> bool:
     return True
 
 
+def formate_date(iso_date):
+    parsed_date = datetime.strptime(iso_date, "%Y-%m-%dT%H:%M:%SZ")
+    return parsed_date.strftime("%d.%m.%Y %H:%M:%S")
+
+
 def filter_orders(
         orders: list, order_ids_in_table: list, amz_handler: object, shop_name: str,
         worksheet: str, timeout_btw_req=1
@@ -129,8 +134,8 @@ def filter_orders(
                     'business_customer': order.get('IsBusinessOrder'),
                     'phone_number': order.get('ShippingAddress', {}).get('Phone'),
                     'state': order.get('ShippingAddress', {}).get('StateOrRegion'),
-                    'latest_delivery_date': datetime.fromisoformat(order.get('LatestDeliveryDate')),
-                    'purchase_date': datetime.fromisoformat(order.get('PurchaseDate')),
+                    'latest_delivery_date': formate_date(order.get('LatestDeliveryDate')),
+                    'purchase_date': formate_date(order.get('PurchaseDate')),
                     'quantity': order.get('NumberOfItemsUnshipped'),
                     'amazon_id': order.get('AmazonOrderId'),
                     'selling_price': item.get('ItemPrice', {}).get('Amount'),

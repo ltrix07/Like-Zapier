@@ -4,8 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="66dbb2b5-1235-4ae8-956a-b4d1648e93b0" name="Changes" comment="store in data list">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+    <list default="true" id="66dbb2b5-1235-4ae8-956a-b4d1648e93b0" name="Changes" comment="from ISO format date to standard">
       <change beforePath="$PROJECT_DIR$/functions.py" beforeDir="false" afterPath="$PROJECT_DIR$/functions.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -385,7 +384,15 @@
       <option name="project" value="LOCAL" />
       <updated>1717411748360</updated>
     </task>
-    <option name="localTasksCounter" value="33" />
+    <task id="LOCAL-00033" summary="from ISO format date to standard">
+      <option name="closed" value="true" />
+      <created>1717439752611</created>
+      <option name="number" value="00033" />
+      <option name="presentableId" value="LOCAL-00033" />
+      <option name="project" value="LOCAL" />
+      <updated>1717439752612</updated>
+    </task>
+    <option name="localTasksCounter" value="34" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -420,6 +427,7 @@
     <MESSAGE value="orders created after 1 days ago" />
     <MESSAGE value="orders created after 7 days ago + pagination" />
     <MESSAGE value="store in data list" />
-    <option name="LAST_COMMIT_MESSAGE" value="store in data list" />
+    <MESSAGE value="from ISO format date to standard" />
+    <option name="LAST_COMMIT_MESSAGE" value="from ISO format date to standard" />
   </component>
 </project>
