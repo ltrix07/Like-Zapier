@@ -82,6 +82,6 @@ def start_zapier(timeout_btw_shops):
 
 
 if __name__ == '__main__':
-    start_zapier(10)
+    start_zapier(3)
 
 
