@@ -4,6 +4,7 @@ import os.path
 import time
 import json
 import socket
+import requests
 from functions import *
 from params import creds_google_path
 from sp_api.base import Marketplaces
@@ -49,6 +50,8 @@ class WorkWithAmazonAPI:
             except sp_api.base.exceptions.SellingApiRequestThrottledException:
                 time.sleep(60)
             except sp_api.base.exceptions.SellingApiServerException:
+                time.sleep(60)
+            except requests.exceptions.ConnectionError:
                 time.sleep(60)
 
         return all_orders
