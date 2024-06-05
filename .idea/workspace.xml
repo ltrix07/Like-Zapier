@@ -4,9 +4,9 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="66dbb2b5-1235-4ae8-956a-b4d1648e93b0" name="Changes" comment="from ISO format date to standard">
+    <list default="true" id="66dbb2b5-1235-4ae8-956a-b4d1648e93b0" name="Changes" comment="add exception ConnectionError">
+      <change afterPath="$PROJECT_DIR$/utils/check_process.sh" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/moduls.py" beforeDir="false" afterPath="$PROJECT_DIR$/moduls.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -53,7 +53,7 @@
     &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
     &quot;git-widget-placeholder&quot;: &quot;master&quot;,
     &quot;last_opened_file_path&quot;: &quot;/home/black_bounty/PycharmProjects/Like-Zapier/creds&quot;,
-    &quot;settings.editor.selected.configurable&quot;: &quot;preferences.lookFeel&quot;
+    &quot;settings.editor.selected.configurable&quot;: &quot;preferences.pluginManager&quot;
   }
 }</component>
   <component name="RecentsManager">
@@ -401,7 +401,15 @@
       <option name="project" value="LOCAL" />
       <updated>1717440024708</updated>
     </task>
-    <option name="localTasksCounter" value="35" />
+    <task id="LOCAL-00035" summary="add exception ConnectionError">
+      <option name="closed" value="true" />
+      <created>1717483954324</created>
+      <option name="number" value="00035" />
+      <option name="presentableId" value="LOCAL-00035" />
+      <option name="project" value="LOCAL" />
+      <updated>1717483954324</updated>
+    </task>
+    <option name="localTasksCounter" value="36" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -437,6 +445,7 @@
     <MESSAGE value="orders created after 7 days ago + pagination" />
     <MESSAGE value="store in data list" />
     <MESSAGE value="from ISO format date to standard" />
-    <option name="LAST_COMMIT_MESSAGE" value="from ISO format date to standard" />
+    <MESSAGE value="add exception ConnectionError" />
+    <option name="LAST_COMMIT_MESSAGE" value="add exception ConnectionError" />
   </component>
 </project>
