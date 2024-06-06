@@ -138,6 +138,7 @@ def filter_orders(
                 'shipping_price': item.get('ShippingPrice', {}).get('Amount'),
                 'asin': item.get('ASIN'),
                 'sku': item.get('SellerSKU')
+                '__prep_name__': prep_name
             }
 
             if what_month:
