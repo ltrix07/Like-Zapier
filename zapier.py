@@ -67,7 +67,8 @@ def start_zapier(timeout_btw_shops):
                 table_handler=table_worker,
                 worksheets=[month_now, month_prev, f'azat_{month_now}', f'azat_{month_prev}', f'bro_{month_now}',
                             f'bro_{month_prev}'],
-                elements=orders
+                elements=orders,
+                columns_names=columns_names
             )
             print(orders_not_in_table)
 

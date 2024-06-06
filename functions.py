@@ -192,14 +192,14 @@ def collect_data_for_append(
 
 
 def element_in_sheet_or_not(
-        table_handler: object, worksheets: list, elements: list, column_name='amazon_id'
+        table_handler: object, worksheets: list, elements: list, columns_names: dict, column_name: str = 'amazon_id'
 ) -> list:
     all_data = []
     for worksheet in worksheets:
         data_from_sheet = table_handler.get_all_info(worksheet)
         indices = get_index_of_column(
             [string_conversion(elem) for elem in data_from_sheet[0]],
-            column_name
+            columns_names
         )
 
         if indices.get(column_name):
