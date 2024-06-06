@@ -199,7 +199,7 @@ def element_in_sheet_or_not(
         data_from_sheet = table_handler.get_all_info(worksheet)
         indices = get_index_of_column(
             [string_conversion(elem) for elem in data_from_sheet[0]],
-            columns_name
+            column_name
         )
 
         if indices.get(column_name):
