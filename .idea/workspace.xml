@@ -5,7 +5,7 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="66dbb2b5-1235-4ae8-956a-b4d1648e93b0" name="Changes" comment="change logic of collector and append">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/functions.py" beforeDir="false" afterPath="$PROJECT_DIR$/functions.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/zapier.py" beforeDir="false" afterPath="$PROJECT_DIR$/zapier.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -128,30 +128,6 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1716410267754</updated>
-    </task>
-    <task id="LOCAL-00001" summary="global fix">
-      <option name="closed" value="true" />
-      <created>1716502302578</created>
-      <option name="number" value="00001" />
-      <option name="presentableId" value="LOCAL-00001" />
-      <option name="project" value="LOCAL" />
-      <updated>1716502302578</updated>
-    </task>
-    <task id="LOCAL-00002" summary="global fix">
-      <option name="closed" value="true" />
-      <created>1716503053478</created>
-      <option name="number" value="00002" />
-      <option name="presentableId" value="LOCAL-00002" />
-      <option name="project" value="LOCAL" />
-      <updated>1716503053478</updated>
-    </task>
-    <task id="LOCAL-00003" summary="global fix">
-      <option name="closed" value="true" />
-      <created>1716503062431</created>
-      <option name="number" value="00003" />
-      <option name="presentableId" value="LOCAL-00003" />
-      <option name="project" value="LOCAL" />
-      <updated>1716503062431</updated>
     </task>
     <task id="LOCAL-00004" summary="global fix">
       <option name="closed" value="true" />
@@ -521,7 +497,31 @@
       <option name="project" value="LOCAL" />
       <updated>1717675505820</updated>
     </task>
-    <option name="localTasksCounter" value="50" />
+    <task id="LOCAL-00050" summary="change logic of collector and append">
+      <option name="closed" value="true" />
+      <created>1717675734805</created>
+      <option name="number" value="00050" />
+      <option name="presentableId" value="LOCAL-00050" />
+      <option name="project" value="LOCAL" />
+      <updated>1717675734805</updated>
+    </task>
+    <task id="LOCAL-00051" summary="change logic of collector and append">
+      <option name="closed" value="true" />
+      <created>1717675910203</created>
+      <option name="number" value="00051" />
+      <option name="presentableId" value="LOCAL-00051" />
+      <option name="project" value="LOCAL" />
+      <updated>1717675910204</updated>
+    </task>
+    <task id="LOCAL-00052" summary="change logic of collector and append">
+      <option name="closed" value="true" />
+      <created>1717675989025</created>
+      <option name="number" value="00052" />
+      <option name="presentableId" value="LOCAL-00052" />
+      <option name="project" value="LOCAL" />
+      <updated>1717675989025</updated>
+    </task>
+    <option name="localTasksCounter" value="53" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">

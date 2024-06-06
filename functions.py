@@ -207,7 +207,6 @@ def element_in_sheet_or_not(
             elements_from_sheet = filter_by_index(data_from_sheet, indices.get(column_name))
             for element in elements_from_sheet:
                 all_data.append(element)
-            print(all_data)
 
     for elem in elements:
         if elem.get('AmazonOrderId') not in all_data:

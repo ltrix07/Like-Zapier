@@ -28,6 +28,7 @@ def processing(orders: list, table_handler: object,
             if order_inf.get('AmazonOrderId') not in amazon_id:
                 to_table.append(order_inf)
 
+        print(f'Uploading to table - {worksheet}')
         data_to_table = collect_data_for_append(
             data_list=to_table, indices=indices, len_headers_list=len(in_table[0]),
             number_list=number, prep_case=prep_case
