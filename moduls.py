@@ -66,6 +66,12 @@ class WorkWithAmazonAPI:
         except sp_api.base.exceptions.SellingApiServerException:
             time.sleep(60)
             return self.get_one_order_items(order_id)
+        except requests.exceptions.ConnectionError:
+            time.sleep(60)
+            return self.get_one_order_items(order_id)
+        except HttpError:
+            time.sleep(60)
+            return self.get_one_order_items(order_id)
         else:
             return order.payload
 
