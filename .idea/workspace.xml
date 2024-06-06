@@ -4,7 +4,9 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="66dbb2b5-1235-4ae8-956a-b4d1648e93b0" name="Changes" comment="change logic of collector and append" />
+    <list default="true" id="66dbb2b5-1235-4ae8-956a-b4d1648e93b0" name="Changes" comment="change logic of collector and append">
+      <change beforePath="$PROJECT_DIR$/zapier.py" beforeDir="false" afterPath="$PROJECT_DIR$/zapier.py" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -125,30 +127,6 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1716410267754</updated>
-    </task>
-    <task id="LOCAL-00008" summary="timeout error fix">
-      <option name="closed" value="true" />
-      <created>1716538570954</created>
-      <option name="number" value="00008" />
-      <option name="presentableId" value="LOCAL-00008" />
-      <option name="project" value="LOCAL" />
-      <updated>1716538570954</updated>
-    </task>
-    <task id="LOCAL-00009" summary="fix error with NoneType iter">
-      <option name="closed" value="true" />
-      <created>1716560951952</created>
-      <option name="number" value="00009" />
-      <option name="presentableId" value="LOCAL-00009" />
-      <option name="project" value="LOCAL" />
-      <updated>1716560951952</updated>
-    </task>
-    <task id="LOCAL-00010" summary="fix error timeout">
-      <option name="closed" value="true" />
-      <created>1716617955557</created>
-      <option name="number" value="00010" />
-      <option name="presentableId" value="LOCAL-00010" />
-      <option name="project" value="LOCAL" />
-      <updated>1716617955557</updated>
     </task>
     <task id="LOCAL-00011" summary="except googleapiclient.errors.HttpError">
       <option name="closed" value="true" />
@@ -518,7 +496,31 @@
       <option name="project" value="LOCAL" />
       <updated>1717676344579</updated>
     </task>
-    <option name="localTasksCounter" value="57" />
+    <task id="LOCAL-00057" summary="change logic of collector and append">
+      <option name="closed" value="true" />
+      <created>1717676565559</created>
+      <option name="number" value="00057" />
+      <option name="presentableId" value="LOCAL-00057" />
+      <option name="project" value="LOCAL" />
+      <updated>1717676565559</updated>
+    </task>
+    <task id="LOCAL-00058" summary="change logic of collector and append">
+      <option name="closed" value="true" />
+      <created>1717676584387</created>
+      <option name="number" value="00058" />
+      <option name="presentableId" value="LOCAL-00058" />
+      <option name="project" value="LOCAL" />
+      <updated>1717676584387</updated>
+    </task>
+    <task id="LOCAL-00059" summary="change logic of collector and append">
+      <option name="closed" value="true" />
+      <created>1717676814815</created>
+      <option name="number" value="00059" />
+      <option name="presentableId" value="LOCAL-00059" />
+      <option name="project" value="LOCAL" />
+      <updated>1717676814815</updated>
+    </task>
+    <option name="localTasksCounter" value="60" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">

@@ -80,15 +80,15 @@ def start_zapier(timeout_btw_shops):
             if month_now_data and month_now in sheets:
                 processing(month_now_data, table_worker, month_now)
             if month_prev_data and month_prev in sheets:
-                processing(month_prev_data, table_worker, month_prev) if month_prev_data else None
+                processing(month_prev_data, table_worker, month_prev)
             if azat_now and f'azat_{month_now}' in sheets:
-                processing(azat_now, table_worker, f'azat_{month_now}', 'azat') if azat_now else None
+                processing(azat_now, table_worker, f'azat_{month_now}', 'azat')
             if azat_prev and f'azat_{month_prev}' in sheets:
-                processing(azat_prev, table_worker, f'azat_{month_prev}', 'azat') if azat_prev else None
+                processing(azat_prev, table_worker, f'azat_{month_prev}', 'azat')
             if bro_now and f'bro_{month_now}' in sheets:
-                processing(bro_now, table_worker, f'bro_{month_now}', 'bro') if bro_now else None
+                processing(bro_now, table_worker, f'bro_{month_now}', 'bro')
             if bro_prev and f'bro_{month_prev}' in sheets:
-                processing(bro_prev, table_worker, f'bro_{month_prev}', 'bro') if bro_prev else None
+                processing(bro_prev, table_worker, f'bro_{month_prev}', 'bro')
             print('')
             time.sleep(timeout_btw_shops)
 
