@@ -2,6 +2,7 @@ import re
 import json
 import time
 import os
+import httplib2
 from tqdm import tqdm
 from typing import Any
 from datetime import datetime
@@ -200,7 +201,13 @@ def element_in_sheet_or_not(
     result = []
     for worksheet in worksheets:
         if worksheet in sheets:
-            data_from_sheet = table_handler.get_all_info(worksheet)
+            data_from_sheet = None
+            while True:
+                try:
+                    data_from_sheet = table_handler.get_all_info(worksheet)
+                except httplib2.error.ServerNotFoundError:
+                    time.sleep(60)
+                    continue
             indices = get_index_of_column(
                 [string_conversion(elem) for elem in data_from_sheet[0]],
                 columns_names
