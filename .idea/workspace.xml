@@ -4,9 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="66dbb2b5-1235-4ae8-956a-b4d1648e93b0" name="Changes" comment="add exception ConnectionError">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/functions.py" beforeDir="false" afterPath="$PROJECT_DIR$/functions.py" afterDir="false" />
+    <list default="true" id="66dbb2b5-1235-4ae8-956a-b4d1648e93b0" name="Changes" comment="change logic of collector and append">
       <change beforePath="$PROJECT_DIR$/zapier.py" beforeDir="false" afterPath="$PROJECT_DIR$/zapier.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -418,7 +416,23 @@
       <option name="project" value="LOCAL" />
       <updated>1717662358015</updated>
     </task>
-    <option name="localTasksCounter" value="37" />
+    <task id="LOCAL-00037" summary="change logic of collector and append">
+      <option name="closed" value="true" />
+      <created>1717672805605</created>
+      <option name="number" value="00037" />
+      <option name="presentableId" value="LOCAL-00037" />
+      <option name="project" value="LOCAL" />
+      <updated>1717672805605</updated>
+    </task>
+    <task id="LOCAL-00038" summary="change logic of collector and append">
+      <option name="closed" value="true" />
+      <created>1717672941126</created>
+      <option name="number" value="00038" />
+      <option name="presentableId" value="LOCAL-00038" />
+      <option name="project" value="LOCAL" />
+      <updated>1717672941126</updated>
+    </task>
+    <option name="localTasksCounter" value="39" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -455,6 +469,7 @@
     <MESSAGE value="store in data list" />
     <MESSAGE value="from ISO format date to standard" />
     <MESSAGE value="add exception ConnectionError" />
-    <option name="LAST_COMMIT_MESSAGE" value="add exception ConnectionError" />
+    <MESSAGE value="change logic of collector and append" />
+    <option name="LAST_COMMIT_MESSAGE" value="change logic of collector and append" />
   </component>
 </project>
