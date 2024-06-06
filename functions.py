@@ -205,6 +205,7 @@ def element_in_sheet_or_not(
             while True:
                 try:
                     data_from_sheet = table_handler.get_all_info(worksheet)
+                    break
                 except httplib2.error.ServerNotFoundError:
                     time.sleep(60)
                     continue
