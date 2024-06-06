@@ -209,8 +209,8 @@ def element_in_sheet_or_not(
                 all_data.append(element)
             print(all_data)
 
-            for elem in elements:
-                if elem.get('AmazonOrderId') not in all_data:
-                    result.append(elem)
+    for elem in elements:
+        if elem.get('AmazonOrderId') not in all_data:
+            result.append(elem)
 
     return result
