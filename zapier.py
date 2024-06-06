@@ -70,32 +70,31 @@ def start_zapier(timeout_btw_shops):
                 elements=orders,
                 columns_names=columns_names
             )
-            print(len(orders_not_in_table))
 
-            # sheets = table_worker.get_sheets_names()
-            #
-            # result = filter_orders(orders, amz_worker, shop_name)
-            # month_now_data = result.get('main_now')
-            # month_prev_data = result.get('main_prev')
-            # azat_now = result.get('azat_now')
-            # azat_prev = result.get('azat_prev')
-            # bro_now = result.get('bro_now')
-            # bro_prev = result.get('bro_prev')
-            #
-            # if month_now in sheets:
-            #     processing(month_now_data, table_worker, month_now) if month_now_data else None
-            # if month_prev in sheets:
-            #     processing(month_prev_data, table_worker, month_prev) if month_prev_data else None
-            # if f'azat_{month_now}' in sheets:
-            #     processing(azat_now, table_worker, f'azat_{month_now}', 'azat') if azat_now else None
-            # if f'azat_{month_prev}' in sheets:
-            #     processing(azat_prev, table_worker, f'azat_{month_prev}', 'azat') if azat_prev else None
-            # if f'bro_{month_now}' in sheets:
-            #     processing(bro_now, table_worker, f'bro_{month_now}', 'bro') if bro_now else None
-            # if f'bro_{month_prev}' in sheets:
-            #     processing(bro_prev, table_worker, f'bro_{month_prev}', 'bro') if bro_prev else None
-            # print('')
-            # time.sleep(timeout_btw_shops)
+            sheets = table_worker.get_sheets_names()
+
+            result = filter_orders(orders_not_in_table, amz_worker, shop_name)
+            month_now_data = result.get('main_now')
+            month_prev_data = result.get('main_prev')
+            azat_now = result.get('azat_now')
+            azat_prev = result.get('azat_prev')
+            bro_now = result.get('bro_now')
+            bro_prev = result.get('bro_prev')
+
+            if month_now in sheets:
+                processing(month_now_data, table_worker, month_now) if month_now_data else None
+            if month_prev in sheets:
+                processing(month_prev_data, table_worker, month_prev) if month_prev_data else None
+            if f'azat_{month_now}' in sheets:
+                processing(azat_now, table_worker, f'azat_{month_now}', 'azat') if azat_now else None
+            if f'azat_{month_prev}' in sheets:
+                processing(azat_prev, table_worker, f'azat_{month_prev}', 'azat') if azat_prev else None
+            if f'bro_{month_now}' in sheets:
+                processing(bro_now, table_worker, f'bro_{month_now}', 'bro') if bro_now else None
+            if f'bro_{month_prev}' in sheets:
+                processing(bro_prev, table_worker, f'bro_{month_prev}', 'bro') if bro_prev else None
+            print('')
+            time.sleep(timeout_btw_shops)
 
         circle += 1
 
