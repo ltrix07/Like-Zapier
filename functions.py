@@ -137,7 +137,7 @@ def filter_orders(
                 'selling_price': item.get('ItemPrice', {}).get('Amount'),
                 'shipping_price': item.get('ShippingPrice', {}).get('Amount'),
                 'asin': item.get('ASIN'),
-                'sku': item.get('SellerSKU')
+                'sku': item.get('SellerSKU'),
                 '__prep_name__': prep_name
             }
 
