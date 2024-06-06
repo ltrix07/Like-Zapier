@@ -66,7 +66,7 @@ def start_zapier(timeout_btw_shops):
 
             sheets = table_worker.get_sheets_names()
 
-            result = filter_orders(orders, amz_handler, shop_name)
+            result = filter_orders(orders, amz_worker, shop_name)
             month_now_data = result.get('month_now')
             month_prev_data = result.get('month_prev')
             azat_now = result.get('azat_now')
