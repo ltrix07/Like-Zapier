@@ -83,8 +83,9 @@ def start_zapier(timeout_btw_shops):
             bro_now = result.get('bro_now')
             bro_prev = result.get('bro_prev')
 
+            print(month_now_data)
             if month_now in sheets:
-                print(processing(month_now_data, table_worker, month_now) if month_now_data else None)
+                processing(month_now_data, table_worker, month_now) if month_now_data else None
             if month_prev in sheets:
                 processing(month_prev_data, table_worker, month_prev) if month_prev_data else None
             if f'azat_{month_now}' in sheets:
