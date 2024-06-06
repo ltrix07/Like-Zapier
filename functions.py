@@ -189,3 +189,27 @@ def collect_data_for_append(
             number += 1
 
     return result
+
+
+def element_in_sheet_or_not(
+        table_handler: object, worksheets: list, elements: list, column_name='amazon_id'
+) -> list:
+    all_data = []
+    for worksheet in worksheets:
+        data_from_sheet = table_handler.get_all_info(worksheet)
+        indices = get_index_of_column(
+            [string_conversion(elem) for elem in data_from_sheet[0]],
+            columns_names
+        )
+
+        if indices.get(column_name):
+            all_data.append(filter_by_index(data_from_sheet, indices.get(column_name)))
+        else:
+            all_data.append([])
+
+    result = []
+    for elem in elements:
+        if elem not in all_data[0]:
+            result.append(elem)
+
+    return result
