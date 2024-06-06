@@ -195,6 +195,7 @@ def element_in_sheet_or_not(
         table_handler: object, worksheets: list, elements: list, columns_names: dict, column_name: str = 'amazon_id'
 ) -> list:
     all_data = []
+    result = []
     for worksheet in worksheets:
         data_from_sheet = table_handler.get_all_info(worksheet)
         indices = get_index_of_column(
@@ -203,15 +204,12 @@ def element_in_sheet_or_not(
         )
 
         if indices.get(column_name):
-            all_data.append(filter_by_index(data_from_sheet, indices.get(column_name)))
-        else:
-            all_data.append([])
+            elements_from_sheet = filter_by_index(data_from_sheet, indices.get(column_name))
+            for element in elements_from_sheet:
+                all_data.append(element)
 
-    print(all_data)
-
-    result = []
-    for elem in elements:
-        if elem.get('AmazonOrderId') not in all_data[0]:
-            result.append(elem)
+            for elem in elements:
+                if elem.get('AmazonOrderId') not in all_data[0]:
+                    result.append(elem)
 
     return result
