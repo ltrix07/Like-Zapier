@@ -70,7 +70,7 @@ def start_zapier(timeout_btw_shops):
                 elements=orders,
                 columns_names=columns_names
             )
-            print(orders_not_in_table)
+            print(len(orders_not_in_table))
 
             # sheets = table_worker.get_sheets_names()
             #
