@@ -11,8 +11,8 @@ sys.stdout.reconfigure(encoding='utf-8')
 circle_of_check = 1
 
 
-def processing(orders: list, table_handler: object, amz_handler: object,
-               worksheet: str | int, shop_name: str, prep_case: str = 'no_prep') -> dict:
+def processing(orders: list, table_handler: object,
+               worksheet: str | int, prep_case: str = 'no_prep') -> dict:
     in_table = table_handler.get_all_info(worksheet)
     indices = get_index_of_column(
         [string_conversion(elem) for elem in in_table[0]],
@@ -21,17 +21,20 @@ def processing(orders: list, table_handler: object, amz_handler: object,
 
     if indices.get('amazon_id'):
         number = filter_by_index(in_table, indices.get('number'))
-        order_id = filter_by_index(in_table, indices.get('amazon_id'))
+        amazon_id = filter_by_index(in_table, indices.get('amazon_id'))
 
-        new_orders = filter_orders(orders, order_id, amz_handler, shop_name, worksheet)
+        to_table = []
+        for order_inf in orders:
+            if order_inf.get('AmazonOrderId') not in amazon_id:
+                to_table.append(order_inf)
 
         data_to_table = collect_data_for_append(
-            data_list=new_orders, indices=indices, len_headers_list=len(in_table[0]),
+            data_list=to_table, indices=indices, len_headers_list=len(in_table[0]),
             number_list=number, prep_case=prep_case
         )
         return table_handler.append_to_table(worksheet, data_to_table, 'USER_ENTERED')
     else:
-        return {'status': 'error', 'message': f'Not found column {indices.get("amazon_id")} in the table'}
+        return {'status': 'error', 'message': f'Not found column "amazon_id" in the table'}
 
 
 def start_zapier(timeout_btw_shops):
@@ -63,18 +66,26 @@ def start_zapier(timeout_btw_shops):
 
             sheets = table_worker.get_sheets_names()
 
+            result = filter_orders(orders, amz_handler, shop_name)
+            month_now_data = result.get('month_now')
+            month_prev_data = result.get('month_prev')
+            azat_now = result.get('azat_now')
+            azat_prev = result.get('azat_prev')
+            bro_now = result.get('bro_now')
+            bro_prev = result.get('bro_prev')
+
             if month_now in sheets:
-                processing(orders, table_worker, amz_worker, month_now, shop_name)
+                processing(month_now_data, table_worker, month_now)
             if month_prev in sheets:
-                processing(orders, table_worker, amz_worker, month_prev, shop_name)
+                processing(month_prev_data, table_worker, month_prev)
             if f'azat_{month_now}' in sheets:
-                processing(orders, table_worker, amz_worker, f'azat_{month_now}', shop_name, prep_case='azat')
+                processing(azat_now, table_worker, f'azat_{month_now}')
             if f'azat_{month_prev}' in sheets:
-                processing(orders, table_worker, amz_worker, f'azat_{month_prev}', shop_name, prep_case='azat')
+                processing(azat_prev, table_worker, f'azat_{month_prev}')
             if f'bro_{month_now}' in sheets:
-                processing(orders, table_worker, amz_worker, f'bro_{month_now}', shop_name, prep_case='bro')
+                processing(bro_now, table_worker, f'bro_{month_now}')
             if f'bro_{month_prev}' in sheets:
-                processing(orders, table_worker, amz_worker, f'bro_{month_prev}', shop_name, prep_case='bro')
+                processing(bro_prev, table_worker, f'bro_{month_prev}')
             print('')
             time.sleep(timeout_btw_shops)
 

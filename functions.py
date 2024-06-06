@@ -82,17 +82,10 @@ def get_next_number(numbers: list) -> int:
         return 1
 
 
-def in_prev_month_or_not(date: str, month: str) -> bool:
-    if '_' in month:
-        month = int(month.split('_')[1])
-    else:
-        month = int(month)
+def in_prev_month_or_not(date: str) -> bool:
     less_10_mor = datetime.fromisoformat(date.replace("Z", "+00:00")).time() < tm(10, 0, 0)
     first_day_or_not = datetime.fromisoformat(date.replace("Z", "+00:00")).day == 1
-    now_month_or_not = datetime.fromisoformat(date.replace("Z", "+00:00")).month == month
-
-    if less_10_mor and first_day_or_not and month == datetime.now().month - 1:
-        return True
+    now_month_or_not = datetime.fromisoformat(date.replace("Z", "+00:00")).month == datetime.now().month
 
     if less_10_mor and first_day_or_not and now_month_or_not:
         return False
@@ -109,45 +102,71 @@ def formate_date(iso_date):
 
 
 def filter_orders(
-        orders: list, order_ids_in_table: list, amz_handler: object, shop_name: str,
-        worksheet: str, timeout_btw_req=1
-) -> list:
-    main = []
+        orders: list, amz_handler: object, shop_name: str, timeout_btw_req=1
+) -> dict:
+    main_now = []
+    main_prev = []
+    azat_now = []
+    azat_prev = []
+    bro_now = []
+    bro_prev = []
 
     if orders is None:
         orders = []
 
-    for i, order in enumerate(tqdm(orders, desc=f'Processing orders on {shop_name} in worksheet "{worksheet}"')):
-        what_month = in_prev_month_or_not(order.get('PurchaseDate'), worksheet)
-        if what_month and order.get('AmazonOrderId') not in order_ids_in_table:
-            order_item_inf = amz_handler.get_one_order_items(order.get('AmazonOrderId'))
+    for i, order in enumerate(tqdm(orders, desc=f'Processing orders on {shop_name}: "')):
+        what_month = in_prev_month_or_not(order.get('PurchaseDate'))
+        order_item_inf = amz_handler.get_one_order_items(order.get('AmazonOrderId'))
 
-            for item in order_item_inf.get('OrderItems'):
-                prep_name = 'no_prep'
-                if 'azat' in item.get('SellerSKU').lower():
-                    prep_name = 'azat'
-                elif 'bro' in item.get('SellerSKU').lower():
-                    prep_name = 'bro'
+        for item in order_item_inf.get('OrderItems'):
+            prep_name = 'no_prep'
+            if 'azat' in item.get('SellerSKU').lower():
+                prep_name = 'azat'
+            elif 'bro' in item.get('SellerSKU').lower():
+                prep_name = 'bro'
 
-                order_data = {
-                    'number': 0,
-                    'business_customer': order.get('IsBusinessOrder'),
-                    'phone_number': order.get('ShippingAddress', {}).get('Phone'),
-                    'state': order.get('ShippingAddress', {}).get('StateOrRegion'),
-                    'latest_delivery_date': formate_date(order.get('LatestDeliveryDate')),
-                    'purchase_date': formate_date(order.get('PurchaseDate')),
-                    'quantity': order.get('NumberOfItemsUnshipped'),
-                    'amazon_id': order.get('AmazonOrderId'),
-                    'selling_price': item.get('ItemPrice', {}).get('Amount'),
-                    'shipping_price': item.get('ShippingPrice', {}).get('Amount'),
-                    'asin': item.get('ASIN'),
-                    'sku': item.get('SellerSKU'),
-                    '__prep_name__': prep_name
-                }
-                main.append(order_data)
+            order_data = {
+                'number': 0,
+                'business_customer': order.get('IsBusinessOrder'),
+                'phone_number': order.get('ShippingAddress', {}).get('Phone'),
+                'state': order.get('ShippingAddress', {}).get('StateOrRegion'),
+                'latest_delivery_date': formate_date(order.get('LatestDeliveryDate')),
+                'purchase_date': formate_date(order.get('PurchaseDate')),
+                'quantity': order.get('NumberOfItemsUnshipped'),
+                'amazon_id': order.get('AmazonOrderId'),
+                'selling_price': item.get('ItemPrice', {}).get('Amount'),
+                'shipping_price': item.get('ShippingPrice', {}).get('Amount'),
+                'asin': item.get('ASIN'),
+                'sku': item.get('SellerSKU')
+            }
 
-            time.sleep(timeout_btw_req)
-    return main
+            if what_month:
+                if prep_name == 'no_prep':
+                    main_now.append(order_data)
+                else:
+                    if prep_name == 'azat':
+                        azat_now.append(order_data)
+                    else:
+                        bro_now.append(order_data)
+            else:
+                if prep_name == 'no_prep':
+                    main_prev.append(order_data)
+                else:
+                    if prep_name == 'azat':
+                        azat_prev.append(order_data)
+                    else:
+                        bro_prev.append(order_data)
+
+        time.sleep(timeout_btw_req)
+
+    return {
+        'main_now': main_now,
+        'main_prev': main_prev,
+        'azat_now': azat_now,
+        'azat_prev': azat_prev,
+        'bro_now': bro_now,
+        'bro_prev': bro_prev
+    }
 
 
 def collect_data_for_append(
