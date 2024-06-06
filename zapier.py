@@ -21,16 +21,10 @@ def processing(orders: list, table_handler: object,
 
     if indices.get('amazon_id'):
         number = filter_by_index(in_table, indices.get('number'))
-        amazon_id = filter_by_index(in_table, indices.get('amazon_id'))
-
-        to_table = []
-        for order_inf in orders:
-            if order_inf.get('AmazonOrderId') not in amazon_id:
-                to_table.append(order_inf)
 
         print(f'Uploading to table - {worksheet}')
         data_to_table = collect_data_for_append(
-            data_list=to_table, indices=indices, len_headers_list=len(in_table[0]),
+            data_list=orders, indices=indices, len_headers_list=len(in_table[0]),
             number_list=number, prep_case=prep_case
         )
         return table_handler.append_to_table(worksheet, data_to_table, 'USER_ENTERED')
@@ -83,7 +77,6 @@ def start_zapier(timeout_btw_shops):
             bro_now = result.get('bro_now')
             bro_prev = result.get('bro_prev')
 
-            print(month_now_data)
             if month_now in sheets:
                 processing(month_now_data, table_worker, month_now) if month_now_data else None
             if month_prev in sheets:
