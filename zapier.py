@@ -59,15 +59,15 @@ def start_zapier(timeout_btw_shops):
             orders = amz_worker.get_all_orders(created_after=created_after,
                                                orders_status='Unshipped')
             print(f'Collecting all orders from sheets - {shop_name}')
+            sheets = table_worker.get_sheets_names()
             orders_not_in_table = element_in_sheet_or_not(
                 table_handler=table_worker,
                 worksheets=[month_now, month_prev, f'azat_{month_now}', f'azat_{month_prev}', f'bro_{month_now}',
                             f'bro_{month_prev}'],
                 elements=orders,
-                columns_names=columns_names
+                columns_names=columns_names,
+                sheets=sheets
             )
-
-            sheets = table_worker.get_sheets_names()
 
             result = filter_orders(orders_not_in_table, amz_worker, shop_name)
             month_now_data = result.get('main_now')
