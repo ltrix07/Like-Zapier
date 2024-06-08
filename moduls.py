@@ -127,6 +127,8 @@ class WorkWithTable:
                 time.sleep(20)
             except googleapiclient.errors.HttpError:
                 time.sleep(60)
+            except httplib2.error.ServerNotFoundError:
+                time.sleep(60)
 
     def append_to_table(self, worksheet: str, data: list,
                         value_input_option: str = 'INPUT_VALUE_OPTION_UNSPECIFIED') -> dict:

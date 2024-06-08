@@ -128,14 +128,6 @@
       <option name="presentableId" value="Default" />
       <updated>1716410267754</updated>
     </task>
-    <task id="LOCAL-00016" summary="creds update">
-      <option name="closed" value="true" />
-      <created>1716989803161</created>
-      <option name="number" value="00016" />
-      <option name="presentableId" value="LOCAL-00016" />
-      <option name="project" value="LOCAL" />
-      <updated>1716989803161</updated>
-    </task>
     <task id="LOCAL-00017" summary="creds update">
       <option name="closed" value="true" />
       <created>1716989893689</created>
@@ -520,7 +512,15 @@
       <option name="project" value="LOCAL" />
       <updated>1717710721984</updated>
     </task>
-    <option name="localTasksCounter" value="65" />
+    <task id="LOCAL-00065" summary="fix SeverNotFoundError">
+      <option name="closed" value="true" />
+      <created>1717711431878</created>
+      <option name="number" value="00065" />
+      <option name="presentableId" value="LOCAL-00065" />
+      <option name="project" value="LOCAL" />
+      <updated>1717711431878</updated>
+    </task>
+    <option name="localTasksCounter" value="66" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
