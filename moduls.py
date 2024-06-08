@@ -108,6 +108,8 @@ class WorkWithTable:
                 time.sleep(20)
             except googleapiclient.errors.HttpError:
                 time.sleep(60)
+            except httplib2.error.ServerNotFoundError:
+                time.sleep(60)
 
     def get_sheets_names(self) -> list:
         request = self.service.spreadsheets().get(
@@ -150,4 +152,6 @@ class WorkWithTable:
             except socket.timeout:
                 time.sleep(20)
             except googleapiclient.errors.HttpError:
+                time.sleep(60)
+            except httplib2.error.ServerNotFoundError:
                 time.sleep(60)
