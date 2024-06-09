@@ -6,6 +6,7 @@
   <component name="ChangeListManager">
     <list default="true" id="66dbb2b5-1235-4ae8-956a-b4d1648e93b0" name="Changes" comment="fix SeverNotFoundError">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/functions.py" beforeDir="false" afterPath="$PROJECT_DIR$/functions.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -127,22 +128,6 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1716410267754</updated>
-    </task>
-    <task id="LOCAL-00017" summary="creds update">
-      <option name="closed" value="true" />
-      <created>1716989893689</created>
-      <option name="number" value="00017" />
-      <option name="presentableId" value="LOCAL-00017" />
-      <option name="project" value="LOCAL" />
-      <updated>1716989893689</updated>
-    </task>
-    <task id="LOCAL-00018" summary="creds update">
-      <option name="closed" value="true" />
-      <created>1716990187069</created>
-      <option name="number" value="00018" />
-      <option name="presentableId" value="LOCAL-00018" />
-      <option name="project" value="LOCAL" />
-      <updated>1716990187069</updated>
     </task>
     <task id="LOCAL-00019" summary="creds_parse">
       <option name="closed" value="true" />
@@ -520,7 +505,23 @@
       <option name="project" value="LOCAL" />
       <updated>1717711431878</updated>
     </task>
-    <option name="localTasksCounter" value="66" />
+    <task id="LOCAL-00066" summary="fix SeverNotFoundError">
+      <option name="closed" value="true" />
+      <created>1717878628423</created>
+      <option name="number" value="00066" />
+      <option name="presentableId" value="LOCAL-00066" />
+      <option name="project" value="LOCAL" />
+      <updated>1717878628423</updated>
+    </task>
+    <task id="LOCAL-00067" summary="fix SeverNotFoundError">
+      <option name="closed" value="true" />
+      <created>1717878706803</created>
+      <option name="number" value="00067" />
+      <option name="presentableId" value="LOCAL-00067" />
+      <option name="project" value="LOCAL" />
+      <updated>1717878706803</updated>
+    </task>
+    <option name="localTasksCounter" value="68" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">

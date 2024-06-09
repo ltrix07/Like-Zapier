@@ -133,7 +133,7 @@ def filter_orders(
                 'state': order.get('ShippingAddress', {}).get('StateOrRegion'),
                 'latest_delivery_date': formate_date(order.get('LatestDeliveryDate')),
                 'purchase_date': formate_date(order.get('PurchaseDate')),
-                'quantity': order.get('NumberOfItemsUnshipped'),
+                'quantity': item.get('QuantityOrdered'),
                 'amazon_id': order.get('AmazonOrderId'),
                 'selling_price': item.get('ItemPrice', {}).get('Amount'),
                 'shipping_price': item.get('ShippingPrice', {}).get('Amount'),
