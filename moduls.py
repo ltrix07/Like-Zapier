@@ -1,3 +1,4 @@
+import google.auth.exceptions
 import googleapiclient.errors
 import sp_api.base.exceptions
 import os.path
@@ -130,6 +131,8 @@ class WorkWithTable:
             except googleapiclient.errors.HttpError:
                 time.sleep(60)
             except httplib2.error.ServerNotFoundError:
+                time.sleep(60)
+            except google.auth.exceptions.TransportError:
                 time.sleep(60)
 
     def append_to_table(self, worksheet: str, data: list,
