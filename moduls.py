@@ -1,3 +1,5 @@
+import ssl
+
 import google.auth.exceptions
 import googleapiclient.errors
 import sp_api.base.exceptions
@@ -86,10 +88,19 @@ class WorkWithTable:
         self.service = build('sheets', 'v4', credentials=creds)
 
     def get_headers(self, worksheet: str) -> list:
-        request = self.service.spreadsheets().values().get(
-            spreadsheetId=self.table_id,
-            range=f'{worksheet}!1:1'
-        ).execute()
+        try:
+            request = self.service.spreadsheets().values().get(
+                spreadsheetId=self.table_id,
+                range=f'{worksheet}!1:1'
+            ).execute()
+        except socket.timeout:
+            time.sleep(20)
+        except googleapiclient.errors.HttpError:
+            time.sleep(60)
+        except httplib2.error.ServerNotFoundError:
+            time.sleep(60)
+        except ssl.SSLError:
+            time.sleep(60)
 
         lower_headers = [string_conversion(elem) for elem in request['values'][0]]
 
@@ -110,6 +121,8 @@ class WorkWithTable:
             except googleapiclient.errors.HttpError:
                 time.sleep(60)
             except httplib2.error.ServerNotFoundError:
+                time.sleep(60)
+            except ssl.SSLError:
                 time.sleep(60)
 
     def get_sheets_names(self) -> list:
@@ -134,6 +147,8 @@ class WorkWithTable:
                 time.sleep(60)
             except google.auth.exceptions.TransportError:
                 time.sleep(60)
+            except ssl.SSLError:
+                time.sleep(60)
 
     def append_to_table(self, worksheet: str, data: list,
                         value_input_option: str = 'INPUT_VALUE_OPTION_UNSPECIFIED') -> dict:
@@ -157,4 +172,6 @@ class WorkWithTable:
             except googleapiclient.errors.HttpError:
                 time.sleep(60)
             except httplib2.error.ServerNotFoundError:
+                time.sleep(60)
+            except ssl.SSLError:
                 time.sleep(60)
