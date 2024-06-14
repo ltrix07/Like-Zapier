@@ -50,6 +50,8 @@ class WorkWithAmazonAPI:
                 next_token = response.payload.get("NextToken")
                 if not next_token:
                     break
+            except sp_api.base.exceptions.SellingApiForbiddenException:
+                return []
             except sp_api.base.exceptions.SellingApiRequestThrottledException:
                 time.sleep(60)
             except sp_api.base.exceptions.SellingApiServerException:
@@ -63,6 +65,8 @@ class WorkWithAmazonAPI:
         res = Orders(credentials=self.credentials, marketplace=Marketplaces.US)
         try:
             order = res.get_order_items(order_id=order_id)
+        except sp_api.base.exceptions.SellingApiForbiddenException:
+            return {'OrderItems': []}
         except sp_api.base.exceptions.SellingApiRequestThrottledException:
             time.sleep(60)
             return self.get_one_order_items(order_id)

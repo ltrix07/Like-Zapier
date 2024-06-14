@@ -4,7 +4,10 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="66dbb2b5-1235-4ae8-956a-b4d1648e93b0" name="Changes" comment="fix SeverNotFoundError" />
+    <list default="true" id="66dbb2b5-1235-4ae8-956a-b4d1648e93b0" name="Changes" comment="ssl error fix">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/moduls.py" beforeDir="false" afterPath="$PROJECT_DIR$/moduls.py" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -125,14 +128,6 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1716410267754</updated>
-    </task>
-    <task id="LOCAL-00020" summary="append add_shop.py for adding and deleting shops">
-      <option name="closed" value="true" />
-      <created>1717258267535</created>
-      <option name="number" value="00020" />
-      <option name="presentableId" value="LOCAL-00020" />
-      <option name="project" value="LOCAL" />
-      <updated>1717258267535</updated>
     </task>
     <task id="LOCAL-00021" summary="add .sh with install packages">
       <option name="closed" value="true" />
@@ -518,7 +513,15 @@
       <option name="project" value="LOCAL" />
       <updated>1717914853194</updated>
     </task>
-    <option name="localTasksCounter" value="69" />
+    <task id="LOCAL-00069" summary="ssl error fix">
+      <option name="closed" value="true" />
+      <created>1718253024047</created>
+      <option name="number" value="00069" />
+      <option name="presentableId" value="LOCAL-00069" />
+      <option name="project" value="LOCAL" />
+      <updated>1718253024048</updated>
+    </task>
+    <option name="localTasksCounter" value="70" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -557,6 +560,7 @@
     <MESSAGE value="add exception ConnectionError" />
     <MESSAGE value="change logic of collector and append" />
     <MESSAGE value="fix SeverNotFoundError" />
-    <option name="LAST_COMMIT_MESSAGE" value="fix SeverNotFoundError" />
+    <MESSAGE value="ssl error fix" />
+    <option name="LAST_COMMIT_MESSAGE" value="ssl error fix" />
   </component>
 </project>
