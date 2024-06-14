@@ -55,12 +55,12 @@ def add_shop(google_creds_path, shop_ifo_path):
 def delete_table(shop_ifo_path):
     while True:
         print('If you want to quite - press "q"')
-        shop_name = input('What shop name to delete (The register is accounted): ').strip()
+        shop_name = input('What shop name to delete (The register is accounted): ').strip().lower()
         if shop_name == 'q':
             break
         creds = read_json(shop_ifo_path)
         for cred in creds:
-            if cred.get('shop_name') == shop_name:
+            if cred.get('shop_name') == shop_name.lower():
                 index = creds.index(cred)
                 creds.pop(index)
                 print('Shop was deleted successfully!')
