@@ -1,5 +1,4 @@
 import ssl
-
 import google.auth.exceptions
 import googleapiclient.errors
 import sp_api.base.exceptions
@@ -54,11 +53,15 @@ class WorkWithAmazonAPI:
                 return []
             except requests.exceptions.HTTPError:
                 time.sleep(60)
+            except requests.exceptions.ConnectionError:
+                time.sleep(60)
+            except requests.exceptions.ReadTimeout:
+                time.sleep(60)
+            except requests.exceptions.Timeout:
+                time.sleep(60)
             except sp_api.base.exceptions.SellingApiRequestThrottledException:
                 time.sleep(60)
             except sp_api.base.exceptions.SellingApiServerException:
-                time.sleep(60)
-            except requests.exceptions.ConnectionError:
                 time.sleep(60)
 
         return all_orders
@@ -68,6 +71,12 @@ class WorkWithAmazonAPI:
         try:
             order = res.get_order_items(order_id=order_id)
         except requests.exceptions.HTTPError:
+            time.sleep(60)
+            return self.get_one_order_items(order_id)
+        except requests.exceptions.ConnectionError:
+            time.sleep(60)
+            return self.get_one_order_items(order_id)
+        except requests.exceptions.ReadTimeout:
             time.sleep(60)
             return self.get_one_order_items(order_id)
         except sp_api.base.exceptions.SellingApiForbiddenException:
