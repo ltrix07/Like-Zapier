@@ -41,6 +41,7 @@ def start_zapier(timeout_btw_shops):
     {now.hour if len(str(now.hour)) > 1 else f"0{now.hour}"}:{now.minute if len(str(now.minute)) > 1 else f"0{now.minute}"} ---')
 
         for shop_inf in shops_inf:
+            print(f'Processing: {shop_inf["shop_name"]}')
             month_now, month_prev = months_get()
             shop_name = shop_inf['shop_name']
             spreadsheet_id = shop_inf['table_id']
