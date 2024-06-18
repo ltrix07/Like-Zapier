@@ -35,7 +35,6 @@ def processing(orders: list, table_handler: object,
 def start_zapier(timeout_btw_shops):
     circle = 1
     while True:
-        print('Reading file with shops...')
         shops_inf = read_json(spreadsheets_info_path)
         now = datetime.now()
         print(f'--- Circle of check {circle}. {now.day}.{now.month}.{now.year} \
@@ -60,7 +59,6 @@ def start_zapier(timeout_btw_shops):
             created_after = (datetime.now() - timedelta(days=7)).replace(hour=0, minute=0, second=0, microsecond=0)
             orders = amz_worker.get_all_orders(created_after=created_after,
                                                orders_status='Unshipped')
-            print(f'Collecting all orders from sheets - {shop_name}')
             sheets = table_worker.get_sheets_names()
             orders_not_in_table = element_in_sheet_or_not(
                 table_handler=table_worker,
