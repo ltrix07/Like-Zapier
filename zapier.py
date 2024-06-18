@@ -89,7 +89,6 @@ def start_zapier(timeout_btw_shops):
                 processing(bro_now, table_worker, f'bro_{month_now}', 'bro')
             if bro_prev and f'bro_{month_prev}' in sheets:
                 processing(bro_prev, table_worker, f'bro_{month_prev}', 'bro')
-            print('')
             time.sleep(timeout_btw_shops)
 
         circle += 1

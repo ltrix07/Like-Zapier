@@ -115,7 +115,7 @@ def filter_orders(
     if orders is None:
         orders = []
 
-    for i, order in enumerate(tqdm(orders, desc=f'Processing orders on {shop_name}: "')):
+    for i, order in enumerate(orders):
         what_month = in_prev_month_or_not(order.get('PurchaseDate'))
         order_item_inf = amz_handler.get_one_order_items(order.get('AmazonOrderId'))
 
