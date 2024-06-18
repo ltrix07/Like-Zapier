@@ -4,7 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="66dbb2b5-1235-4ae8-956a-b4d1648e93b0" name="Changes" comment="remove data" />
+    <list default="true" id="66dbb2b5-1235-4ae8-956a-b4d1648e93b0" name="Changes" comment="remove print data" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -125,22 +125,6 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1716410267754</updated>
-    </task>
-    <task id="LOCAL-00026" summary="less timeout btw shops">
-      <option name="closed" value="true" />
-      <created>1717398090275</created>
-      <option name="number" value="00026" />
-      <option name="presentableId" value="LOCAL-00026" />
-      <option name="project" value="LOCAL" />
-      <updated>1717398090275</updated>
-    </task>
-    <task id="LOCAL-00027" summary="orders created after 3 days ago">
-      <option name="closed" value="true" />
-      <created>1717408448026</created>
-      <option name="number" value="00027" />
-      <option name="presentableId" value="LOCAL-00027" />
-      <option name="project" value="LOCAL" />
-      <updated>1717408448026</updated>
     </task>
     <task id="LOCAL-00028" summary="orders created after 2 days ago">
       <option name="closed" value="true" />
@@ -518,7 +502,23 @@
       <option name="project" value="LOCAL" />
       <updated>1718699965127</updated>
     </task>
-    <option name="localTasksCounter" value="75" />
+    <task id="LOCAL-00075" summary="remove data">
+      <option name="closed" value="true" />
+      <created>1718700362294</created>
+      <option name="number" value="00075" />
+      <option name="presentableId" value="LOCAL-00075" />
+      <option name="project" value="LOCAL" />
+      <updated>1718700362294</updated>
+    </task>
+    <task id="LOCAL-00076" summary="remove print data">
+      <option name="closed" value="true" />
+      <created>1718700484020</created>
+      <option name="number" value="00076" />
+      <option name="presentableId" value="LOCAL-00076" />
+      <option name="project" value="LOCAL" />
+      <updated>1718700484020</updated>
+    </task>
+    <option name="localTasksCounter" value="77" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -533,7 +533,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="fix error timeout" />
     <MESSAGE value="except googleapiclient.errors.HttpError" />
     <MESSAGE value="fix error with sp_api" />
     <MESSAGE value="add azat, bro, changes" />
@@ -558,6 +557,7 @@
     <MESSAGE value="sp_api error with api authorization fix" />
     <MESSAGE value="req error fix" />
     <MESSAGE value="remove data" />
-    <option name="LAST_COMMIT_MESSAGE" value="remove data" />
+    <MESSAGE value="remove print data" />
+    <option name="LAST_COMMIT_MESSAGE" value="remove print data" />
   </component>
 </project>

@@ -35,6 +35,7 @@ def processing(orders: list, table_handler: object,
 def start_zapier(timeout_btw_shops):
     circle = 1
     while True:
+        print('Reading file with shops...')
         shops_inf = read_json(spreadsheets_info_path)
         now = datetime.now()
         print(f'--- Circle of check {circle}. {now.day}.{now.month}.{now.year} \
