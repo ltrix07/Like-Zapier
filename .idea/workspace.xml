@@ -4,9 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="66dbb2b5-1235-4ae8-956a-b4d1648e93b0" name="Changes" comment="req error fix">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-    </list>
+    <list default="true" id="66dbb2b5-1235-4ae8-956a-b4d1648e93b0" name="Changes" comment="remove data" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -127,14 +125,6 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1716410267754</updated>
-    </task>
-    <task id="LOCAL-00025" summary="read json every circle">
-      <option name="closed" value="true" />
-      <created>1717397771885</created>
-      <option name="number" value="00025" />
-      <option name="presentableId" value="LOCAL-00025" />
-      <option name="project" value="LOCAL" />
-      <updated>1717397771885</updated>
     </task>
     <task id="LOCAL-00026" summary="less timeout btw shops">
       <option name="closed" value="true" />
@@ -520,7 +510,15 @@
       <option name="project" value="LOCAL" />
       <updated>1718604131981</updated>
     </task>
-    <option name="localTasksCounter" value="74" />
+    <task id="LOCAL-00074" summary="remove data">
+      <option name="closed" value="true" />
+      <created>1718699965126</created>
+      <option name="number" value="00074" />
+      <option name="presentableId" value="LOCAL-00074" />
+      <option name="project" value="LOCAL" />
+      <updated>1718699965127</updated>
+    </task>
+    <option name="localTasksCounter" value="75" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -535,7 +533,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="fix error with NoneType iter" />
     <MESSAGE value="fix error timeout" />
     <MESSAGE value="except googleapiclient.errors.HttpError" />
     <MESSAGE value="fix error with sp_api" />
@@ -560,6 +557,7 @@
     <MESSAGE value="ssl error fix" />
     <MESSAGE value="sp_api error with api authorization fix" />
     <MESSAGE value="req error fix" />
-    <option name="LAST_COMMIT_MESSAGE" value="req error fix" />
+    <MESSAGE value="remove data" />
+    <option name="LAST_COMMIT_MESSAGE" value="remove data" />
   </component>
 </project>
