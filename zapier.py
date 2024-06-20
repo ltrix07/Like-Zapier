@@ -69,6 +69,8 @@ def start_zapier(timeout_btw_shops):
                 print('Collect info about sheets...')
             sheets = table_worker.get_sheets_names()
             if args.debug:
+                print(sheets)
+            if args.debug:
                 print('Processing order in table or not...')
             orders_not_in_table = element_in_sheet_or_not(
                 table_handler=table_worker,
