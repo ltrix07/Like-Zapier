@@ -1,6 +1,7 @@
 import json
 import time as tmd
 import sys
+import argparse
 from datetime import datetime, time, timedelta
 from params import spreadsheets_info_path, columns_names
 from random import randrange
@@ -9,6 +10,9 @@ from functions import *
 sys.stdout.reconfigure(encoding='utf-8')
 
 circle_of_check = 1
+parser_args = argparse.ArgumentParser(description='This script collects data from Amazon API and appends it to Google')
+parser_args.add_argument('--debug', type=str, help='Debug mode turn on.')
+args = parser_args.parse_args()
 
 
 def processing(orders: list, table_handler: object,
@@ -35,6 +39,8 @@ def processing(orders: list, table_handler: object,
 def start_zapier(timeout_btw_shops):
     circle = 1
     while True:
+        if args.debug:
+            print('Collect shop info...')
         shops_inf = read_json(spreadsheets_info_path)
         now = datetime.now()
         print(f'--- Circle of check {circle}. {now.day}.{now.month}.{now.year} \
@@ -59,7 +65,11 @@ def start_zapier(timeout_btw_shops):
             created_after = (datetime.now() - timedelta(days=7)).replace(hour=0, minute=0, second=0, microsecond=0)
             orders = amz_worker.get_all_orders(created_after=created_after,
                                                orders_status='Unshipped')
+            if args.debug:
+                print('Collect info about sheets...')
             sheets = table_worker.get_sheets_names()
+            if args.debug:
+                print('Processing order in table or not...')
             orders_not_in_table = element_in_sheet_or_not(
                 table_handler=table_worker,
                 worksheets=[month_now, month_prev, f'azat_{month_now}', f'azat_{month_prev}', f'bro_{month_now}',
@@ -69,6 +79,8 @@ def start_zapier(timeout_btw_shops):
                 sheets=sheets
             )
 
+            if args.debug:
+                print('Filter orders for append...')
             result = filter_orders(orders_not_in_table, amz_worker, shop_name)
             month_now_data = result.get('main_now')
             month_prev_data = result.get('main_prev')
@@ -77,6 +89,8 @@ def start_zapier(timeout_btw_shops):
             bro_now = result.get('bro_now')
             bro_prev = result.get('bro_prev')
 
+            if args.debug:
+                print('Updating table if orders...')
             if month_now_data and month_now in sheets:
                 processing(month_now_data, table_worker, month_now)
             if month_prev_data and month_prev in sheets:
