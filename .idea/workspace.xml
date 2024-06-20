@@ -128,14 +128,6 @@
       <option name="presentableId" value="Default" />
       <updated>1716410267754</updated>
     </task>
-    <task id="LOCAL-00034" summary="from ISO format date to standard">
-      <option name="closed" value="true" />
-      <created>1717440024708</created>
-      <option name="number" value="00034" />
-      <option name="presentableId" value="LOCAL-00034" />
-      <option name="project" value="LOCAL" />
-      <updated>1717440024708</updated>
-    </task>
     <task id="LOCAL-00035" summary="add exception ConnectionError">
       <option name="closed" value="true" />
       <created>1717483954324</created>
@@ -520,7 +512,15 @@
       <option name="project" value="LOCAL" />
       <updated>1718881925680</updated>
     </task>
-    <option name="localTasksCounter" value="83" />
+    <task id="LOCAL-00083" summary="debug mode on">
+      <option name="closed" value="true" />
+      <created>1718882844376</created>
+      <option name="number" value="00083" />
+      <option name="presentableId" value="LOCAL-00083" />
+      <option name="project" value="LOCAL" />
+      <updated>1718882844376</updated>
+    </task>
+    <option name="localTasksCounter" value="84" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">

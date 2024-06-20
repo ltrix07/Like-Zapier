@@ -148,11 +148,11 @@ class WorkWithTable:
             except ssl.SSLError:
                 time.sleep(60)
 
-    def get_sheets_names(self, args) -> list:
+    def get_sheets_names(self, args, retries: int = 5) -> list | str:
         request = self.service.spreadsheets().get(
             spreadsheetId=self.table_id
         )
-        while True:
+        for retry in range(retries):
             try:
                 result = []
                 response = request.execute()
@@ -183,8 +183,11 @@ class WorkWithTable:
                     print(error)
                 time.sleep(60)
 
+        return 'error'
+
     def append_to_table(self, worksheet: str, data: list,
-                        value_input_option: str = 'INPUT_VALUE_OPTION_UNSPECIFIED') -> dict:
+                        value_input_option: str = 'INPUT_VALUE_OPTION_UNSPECIFIED',
+                        retries: int = 5) -> dict | str:
         body = {
             'values': data
         }
@@ -196,7 +199,7 @@ class WorkWithTable:
             insertDataOption='INSERT_ROWS',
             body=body
         )
-        while True:
+        for retry in range(retries):
             try:
                 response = request.execute()
                 return response
@@ -208,3 +211,5 @@ class WorkWithTable:
                 time.sleep(60)
             except ssl.SSLError:
                 time.sleep(60)
+
+        return 'error'
