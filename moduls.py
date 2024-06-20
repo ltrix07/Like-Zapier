@@ -7,6 +7,7 @@ import time
 import json
 import socket
 import requests
+from zapier import args
 from functions import *
 from params import creds_google_path
 from sp_api.base import Marketplaces
@@ -108,13 +109,21 @@ class WorkWithTable:
                 spreadsheetId=self.table_id,
                 range=f'{worksheet}!1:1'
             ).execute()
-        except socket.timeout:
+        except socket.timeout as error:
+            if args.debug:
+                print(error)
             time.sleep(20)
-        except googleapiclient.errors.HttpError:
+        except googleapiclient.errors.HttpError as error:
+            if args.debug:
+                print(error)
             time.sleep(60)
-        except httplib2.error.ServerNotFoundError:
+        except httplib2.error.ServerNotFoundError as error:
+            if args.debug:
+                print(error)
             time.sleep(60)
-        except ssl.SSLError:
+        except ssl.SSLError as error:
+            if args.debug:
+                print(error)
             time.sleep(60)
 
         lower_headers = [string_conversion(elem) for elem in request['values'][0]]
@@ -154,15 +163,25 @@ class WorkWithTable:
                         result.append(sheet.get("properties").get('title'))
 
                 return result
-            except socket.timeout:
+            except socket.timeout as error:
+                if args.debug:
+                    print(error)
                 time.sleep(20)
-            except googleapiclient.errors.HttpError:
+            except googleapiclient.errors.HttpError as error:
+                if args.debug:
+                    print(error)
                 time.sleep(60)
-            except httplib2.error.ServerNotFoundError:
+            except httplib2.error.ServerNotFoundError as error:
+                if args.debug:
+                    print(error)
                 time.sleep(60)
-            except google.auth.exceptions.TransportError:
+            except google.auth.exceptions.TransportError as error:
+                if args.debug:
+                    print(error)
                 time.sleep(60)
-            except ssl.SSLError:
+            except ssl.SSLError as error:
+                if args.debug:
+                    print(error)
                 time.sleep(60)
 
     def append_to_table(self, worksheet: str, data: list,
