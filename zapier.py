@@ -68,6 +68,8 @@ def start_zapier(timeout_btw_shops):
             if args.debug:
                 print('Collect info about sheets...')
             sheets = table_worker.get_sheets_names(args)
+            if sheets == 'error':
+                continue
             if args.debug:
                 print(sheets)
             if args.debug:
