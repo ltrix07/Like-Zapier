@@ -60,7 +60,7 @@ def delete_table(shop_ifo_path):
             break
         creds = read_json(shop_ifo_path)
         for cred in creds:
-            if cred.get('shop_name') == shop_name.lower():
+            if cred.get('shop_name').lower().strip() == shop_name:
                 index = creds.index(cred)
                 creds.pop(index)
                 print('Shop was deleted successfully!')
