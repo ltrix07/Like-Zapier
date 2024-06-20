@@ -7,7 +7,6 @@ import time
 import json
 import socket
 import requests
-from zapier import args
 from functions import *
 from params import creds_google_path
 from sp_api.base import Marketplaces
@@ -103,7 +102,7 @@ class WorkWithTable:
                                                       scopes=['https://www.googleapis.com/auth/spreadsheets'])
         self.service = build('sheets', 'v4', credentials=creds)
 
-    def get_headers(self, worksheet: str) -> list:
+    def get_headers(self, worksheet: str, args) -> list:
         try:
             request = self.service.spreadsheets().values().get(
                 spreadsheetId=self.table_id,
@@ -149,7 +148,7 @@ class WorkWithTable:
             except ssl.SSLError:
                 time.sleep(60)
 
-    def get_sheets_names(self) -> list:
+    def get_sheets_names(self, args) -> list:
         request = self.service.spreadsheets().get(
             spreadsheetId=self.table_id
         )

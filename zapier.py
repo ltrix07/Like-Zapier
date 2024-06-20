@@ -67,7 +67,7 @@ def start_zapier(timeout_btw_shops):
                                                orders_status='Unshipped')
             if args.debug:
                 print('Collect info about sheets...')
-            sheets = table_worker.get_sheets_names()
+            sheets = table_worker.get_sheets_names(args)
             if args.debug:
                 print(sheets)
             if args.debug:
