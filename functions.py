@@ -142,7 +142,7 @@ def filter_orders(
                 'sku': item.get('SellerSKU'),
                 '__prep_name__': prep_name
             }
-            if order.get('IsReplacementOrder'):
+            if order.get('IsReplacementOrder') is True:
                 order_data['status_1'] = 'Replacement'
 
             if what_month:
