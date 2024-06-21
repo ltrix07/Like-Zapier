@@ -6,6 +6,8 @@
   <component name="ChangeListManager">
     <list default="true" id="66dbb2b5-1235-4ae8-956a-b4d1648e93b0" name="Changes" comment="debug mode on">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/functions.py" beforeDir="false" afterPath="$PROJECT_DIR$/functions.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/params.py" beforeDir="false" afterPath="$PROJECT_DIR$/params.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -127,22 +129,6 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1716410267754</updated>
-    </task>
-    <task id="LOCAL-00035" summary="add exception ConnectionError">
-      <option name="closed" value="true" />
-      <created>1717483954324</created>
-      <option name="number" value="00035" />
-      <option name="presentableId" value="LOCAL-00035" />
-      <option name="project" value="LOCAL" />
-      <updated>1717483954324</updated>
-    </task>
-    <task id="LOCAL-00036" summary="add exception ConnectionError">
-      <option name="closed" value="true" />
-      <created>1717662358015</created>
-      <option name="number" value="00036" />
-      <option name="presentableId" value="LOCAL-00036" />
-      <option name="project" value="LOCAL" />
-      <updated>1717662358015</updated>
     </task>
     <task id="LOCAL-00037" summary="change logic of collector and append">
       <option name="closed" value="true" />
@@ -520,7 +506,23 @@
       <option name="project" value="LOCAL" />
       <updated>1718882844376</updated>
     </task>
-    <option name="localTasksCounter" value="84" />
+    <task id="LOCAL-00084" summary="debug mode on">
+      <option name="closed" value="true" />
+      <created>1718897314847</created>
+      <option name="number" value="00084" />
+      <option name="presentableId" value="LOCAL-00084" />
+      <option name="project" value="LOCAL" />
+      <updated>1718897314847</updated>
+    </task>
+    <task id="LOCAL-00085" summary="debug mode on">
+      <option name="closed" value="true" />
+      <created>1718897385851</created>
+      <option name="number" value="00085" />
+      <option name="presentableId" value="LOCAL-00085" />
+      <option name="project" value="LOCAL" />
+      <updated>1718897385851</updated>
+    </task>
+    <option name="localTasksCounter" value="86" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">

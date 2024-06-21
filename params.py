@@ -10,6 +10,7 @@ columns_names = {
     'business_customer': 'Business customer',
     'phone_number': 'Phone Number',
     'state': 'State',
+    'status_1': 'Status 1',
     'latest_delivery_date': 'Lastest Delivery Date',
     'purchase_date': 'Date of purchase',
     'quantity': 'Quantity',

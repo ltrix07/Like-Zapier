@@ -135,12 +135,15 @@ def filter_orders(
                 'purchase_date': formate_date(order.get('PurchaseDate')),
                 'quantity': item.get('QuantityOrdered'),
                 'amazon_id': order.get('AmazonOrderId'),
+                'status_1': None,
                 'selling_price': item.get('ItemPrice', {}).get('Amount'),
                 'shipping_price': item.get('ShippingPrice', {}).get('Amount'),
                 'asin': item.get('ASIN'),
                 'sku': item.get('SellerSKU'),
                 '__prep_name__': prep_name
             }
+            if order.get('IsReplacementOrder'):
+                order_data['status_1'] = 'Replacement'
 
             if what_month:
                 if prep_name == 'no_prep':
