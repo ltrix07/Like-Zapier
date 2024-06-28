@@ -51,6 +51,8 @@ class WorkWithAmazonAPI:
                     break
             except sp_api.base.exceptions.SellingApiForbiddenException:
                 return []
+            except sp_api.base.exceptions.SellingApiBadRequestException:
+                time.sleep(60)
             except requests.exceptions.HTTPError:
                 time.sleep(60)
             except requests.exceptions.ConnectionError:
