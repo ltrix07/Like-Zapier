@@ -1,4 +1,4 @@
-#!/home/black_bounty/PycharmProjects/Like-Zapier/venv/bin/python3
+#!/Users/volodya/PycharmProjects/Like-Zapier/venv/bin/python3.12
 # -*- coding: utf-8 -*-
 import re
 import sys

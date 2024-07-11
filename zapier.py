@@ -77,7 +77,7 @@ def start_zapier(timeout_btw_shops):
             orders_not_in_table = element_in_sheet_or_not(
                 table_handler=table_worker,
                 worksheets=[month_now, month_prev, f'azat_{month_now}', f'azat_{month_prev}', f'bro_{month_now}',
-                            f'bro_{month_prev}'],
+                            f'bro_{month_prev}', 'Проблема'],
                 elements=orders,
                 columns_names=columns_names,
                 sheets=sheets
