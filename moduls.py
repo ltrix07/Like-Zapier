@@ -2,16 +2,12 @@ import ssl
 import google.auth.exceptions
 import googleapiclient.errors
 import sp_api.base.exceptions
-import os.path
-import time
-import json
 import socket
 import requests
 from functions import *
 from params import creds_google_path
 from sp_api.base import Marketplaces
 from sp_api.api import Orders
-from google.oauth2 import service_account
 from googleapiclient.discovery import build
 from googleapiclient.errors import HttpError
 from google.oauth2.service_account import Credentials

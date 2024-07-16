@@ -1,10 +1,7 @@
-import json
-import time as tmd
 import sys
 import argparse
-from datetime import datetime, time, timedelta
+from datetime import time, timedelta
 from params import spreadsheets_info_path, columns_names
-from random import randrange
 from moduls import WorkWithTable, WorkWithAmazonAPI
 from functions import *
 sys.stdout.reconfigure(encoding='utf-8')

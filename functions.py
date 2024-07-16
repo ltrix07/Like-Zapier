@@ -3,7 +3,6 @@ import json
 import time
 import os
 import httplib2
-from tqdm import tqdm
 from typing import Any
 from datetime import datetime
 from datetime import time as tm
