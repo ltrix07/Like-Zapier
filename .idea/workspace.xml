@@ -4,9 +4,9 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="66dbb2b5-1235-4ae8-956a-b4d1648e93b0" name="Changes" comment="add restart.sh">
+    <list default="true" id="66dbb2b5-1235-4ae8-956a-b4d1648e93b0" name="Changes" comment="add _refresh_access_token()">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/moduls.py" beforeDir="false" afterPath="$PROJECT_DIR$/moduls.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/restart.sh" beforeDir="false" afterPath="$PROJECT_DIR$/restart.sh" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -133,14 +133,6 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1716410267754</updated>
-    </task>
-    <task id="LOCAL-00041" summary="change logic of collector and append">
-      <option name="closed" value="true" />
-      <created>1717674606111</created>
-      <option name="number" value="00041" />
-      <option name="presentableId" value="LOCAL-00041" />
-      <option name="project" value="LOCAL" />
-      <updated>1717674606111</updated>
     </task>
     <task id="LOCAL-00042" summary="change logic of collector and append">
       <option name="closed" value="true" />
@@ -526,7 +518,15 @@
       <option name="project" value="LOCAL" />
       <updated>1721112195427</updated>
     </task>
-    <option name="localTasksCounter" value="90" />
+    <task id="LOCAL-00090" summary="add _refresh_access_token()">
+      <option name="closed" value="true" />
+      <created>1721308281188</created>
+      <option name="number" value="00090" />
+      <option name="presentableId" value="LOCAL-00090" />
+      <option name="project" value="LOCAL" />
+      <updated>1721308281188</updated>
+    </task>
+    <option name="localTasksCounter" value="91" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -541,7 +541,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="add azat, bro, changes" />
     <MESSAGE value="creds update" />
     <MESSAGE value="creds_parse" />
     <MESSAGE value="append add_shop.py for adding and deleting shops" />
@@ -566,6 +565,7 @@
     <MESSAGE value="remove print data" />
     <MESSAGE value="debug mode on" />
     <MESSAGE value="add restart.sh" />
-    <option name="LAST_COMMIT_MESSAGE" value="add restart.sh" />
+    <MESSAGE value="add _refresh_access_token()" />
+    <option name="LAST_COMMIT_MESSAGE" value="add _refresh_access_token()" />
   </component>
 </project>
