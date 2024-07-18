@@ -24,8 +24,29 @@ class WorkWithAmazonAPI:
             "lwa_client_secret": self.lwa_client_secret
         }
 
+    def _refresh_access_token(self):
+        url = 'https://api.amazon.com/auth/o2/token'
+        payload = {
+            'grant_type': 'refresh_token',
+            'client_id': self.credentials.get('lwa_app_id'),
+            'client_secret': self.credentials.get('lwa_client_secret'),
+            'refresh_token': self.credentials.get('refresh_token')
+        }
+        headers = {
+            'Content-Type': 'application/x-www-form-urlencoded'
+        }
+
+        response = requests.post(url, data=payload, headers=headers)
+
+        if response.status_code == 200:
+            tokens = response.json()
+            return tokens['access_token']
+        else:
+            raise Exception('Failed to refresh token ' + response.text)
+
     def get_all_orders(self, orders_status: str, created_after: datetime) -> list:
-        res = Orders(credentials=self.credentials, marketplace=Marketplaces.US)
+        new_token = self._refresh_access_token()
+        res = Orders(credentials=self.credentials, marketplace=Marketplaces.US, restricted_data_token=new_token)
         all_orders = []
         next_token = None
 
@@ -65,7 +86,8 @@ class WorkWithAmazonAPI:
         return all_orders
 
     def get_one_order_items(self, order_id: str) -> dict:
-        res = Orders(credentials=self.credentials, marketplace=Marketplaces.US)
+        new_token = self._refresh_access_token()
+        res = Orders(credentials=self.credentials, marketplace=Marketplaces.US, restricted_data_token=new_token)
         try:
             order = res.get_order_items(order_id=order_id)
         except requests.exceptions.HTTPError:
