@@ -4,6 +4,8 @@ import googleapiclient.errors
 import sp_api.base.exceptions
 import socket
 import requests
+import time
+from requests.exceptions import ConnectionError, Timeout
 from functions import *
 from params import creds_google_path
 from sp_api.base import Marketplaces
@@ -24,7 +26,7 @@ class WorkWithAmazonAPI:
             "lwa_client_secret": self.lwa_client_secret
         }
 
-    def _refresh_access_token(self):
+    def _refresh_access_token(self, retries=5, delay=5):
         url = 'https://api.amazon.com/auth/o2/token'
         payload = {
             'grant_type': 'refresh_token',
@@ -35,14 +37,17 @@ class WorkWithAmazonAPI:
         headers = {
             'Content-Type': 'application/x-www-form-urlencoded'
         }
-
-        response = requests.post(url, data=payload, headers=headers)
-
-        if response.status_code == 200:
-            tokens = response.json()
-            return tokens['access_token']
-        else:
-            raise Exception('Failed to refresh token ' + response.text)
+        for _ in range(retries):
+            try:
+                response = requests.post(url, data=payload, headers=headers)
+                if response.status_code == 200:
+                    tokens = response.json()
+                    return tokens['access_token']
+                else:
+                    return None
+            except (ConnectionError, Timeout) as e:
+                print(f'Connection failed: {e}.')
+                time.sleep(delay)
 
     def get_all_orders(self, orders_status: str, created_after: datetime) -> list:
         new_token = self._refresh_access_token()
