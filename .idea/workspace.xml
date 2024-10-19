@@ -4,7 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="66dbb2b5-1235-4ae8-956a-b4d1648e93b0" name="Changes" comment="add _refresh_access_token()">
+    <list default="true" id="66dbb2b5-1235-4ae8-956a-b4d1648e93b0" name="Changes" comment="fix empty rows adding">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/functions.py" beforeDir="false" afterPath="$PROJECT_DIR$/functions.py" afterDir="false" />
     </list>
@@ -133,14 +133,6 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1716410267754</updated>
-    </task>
-    <task id="LOCAL-00044" summary="change logic of collector and append">
-      <option name="closed" value="true" />
-      <created>1717674831452</created>
-      <option name="number" value="00044" />
-      <option name="presentableId" value="LOCAL-00044" />
-      <option name="project" value="LOCAL" />
-      <updated>1717674831452</updated>
     </task>
     <task id="LOCAL-00045" summary="change logic of collector and append">
       <option name="closed" value="true" />
@@ -526,7 +518,15 @@
       <option name="project" value="LOCAL" />
       <updated>1721466503639</updated>
     </task>
-    <option name="localTasksCounter" value="93" />
+    <task id="LOCAL-00093" summary="fix empty rows adding">
+      <option name="closed" value="true" />
+      <created>1729377449609</created>
+      <option name="number" value="00093" />
+      <option name="presentableId" value="LOCAL-00093" />
+      <option name="project" value="LOCAL" />
+      <updated>1729377449611</updated>
+    </task>
+    <option name="localTasksCounter" value="94" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -541,7 +541,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="creds update" />
     <MESSAGE value="creds_parse" />
     <MESSAGE value="append add_shop.py for adding and deleting shops" />
     <MESSAGE value="add .sh with install packages" />
@@ -566,6 +565,7 @@
     <MESSAGE value="debug mode on" />
     <MESSAGE value="add restart.sh" />
     <MESSAGE value="add _refresh_access_token()" />
-    <option name="LAST_COMMIT_MESSAGE" value="add _refresh_access_token()" />
+    <MESSAGE value="fix empty rows adding" />
+    <option name="LAST_COMMIT_MESSAGE" value="fix empty rows adding" />
   </component>
 </project>

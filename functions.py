@@ -115,12 +115,12 @@ def filter_orders(
         orders = []
 
     for i, order in enumerate(orders):
+        if not order.get('amazon_id'):
+            continue
         what_month = in_prev_month_or_not(order.get('PurchaseDate'))
         order_item_inf = amz_handler.get_one_order_items(order.get('AmazonOrderId'))
 
         for item in order_item_inf.get('OrderItems'):
-            if not item.get('asin'):
-                continue
             prep_name = 'no_prep'
             if 'azat' in item.get('SellerSKU').lower():
                 prep_name = 'azat'
