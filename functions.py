@@ -180,7 +180,7 @@ def collect_data_for_append(
     result = []
     number = get_next_number(number_list)
     for data_dict in data_list:
-        if data_dict.get('__prep_name__') == prep_case:
+        if data_dict.get('__prep_name__') == prep_case and data_dict.get('asin'):
             row = [''] * len_headers_list
             for key, col in indices.items():
                 if col is not None and key in data_dict:

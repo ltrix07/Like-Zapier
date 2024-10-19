@@ -134,22 +134,6 @@
       <option name="presentableId" value="Default" />
       <updated>1716410267754</updated>
     </task>
-    <task id="LOCAL-00045" summary="change logic of collector and append">
-      <option name="closed" value="true" />
-      <created>1717674884337</created>
-      <option name="number" value="00045" />
-      <option name="presentableId" value="LOCAL-00045" />
-      <option name="project" value="LOCAL" />
-      <updated>1717674884337</updated>
-    </task>
-    <task id="LOCAL-00046" summary="change logic of collector and append">
-      <option name="closed" value="true" />
-      <created>1717674941187</created>
-      <option name="number" value="00046" />
-      <option name="presentableId" value="LOCAL-00046" />
-      <option name="project" value="LOCAL" />
-      <updated>1717674941187</updated>
-    </task>
     <task id="LOCAL-00047" summary="change logic of collector and append">
       <option name="closed" value="true" />
       <created>1717675151821</created>
@@ -526,7 +510,23 @@
       <option name="project" value="LOCAL" />
       <updated>1729377449611</updated>
     </task>
-    <option name="localTasksCounter" value="94" />
+    <task id="LOCAL-00094" summary="fix empty rows adding">
+      <option name="closed" value="true" />
+      <created>1729378631061</created>
+      <option name="number" value="00094" />
+      <option name="presentableId" value="LOCAL-00094" />
+      <option name="project" value="LOCAL" />
+      <updated>1729378631061</updated>
+    </task>
+    <task id="LOCAL-00095" summary="fix empty rows adding">
+      <option name="closed" value="true" />
+      <created>1729378873798</created>
+      <option name="number" value="00095" />
+      <option name="presentableId" value="LOCAL-00095" />
+      <option name="project" value="LOCAL" />
+      <updated>1729378873798</updated>
+    </task>
+    <option name="localTasksCounter" value="96" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
